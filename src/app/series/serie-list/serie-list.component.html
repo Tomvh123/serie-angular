@@ -1,0 +1,10 @@
+<h1>test</h1>
+<hr>
+<div class="row">
+  <div class="col-xs-12">
+    <app-serie-item
+      *ngFor="let serieEl of series; let i = index"
+      [serie]="serieEl"
+      [index]="i"></app-serie-item>
+  </div>
+</div>
