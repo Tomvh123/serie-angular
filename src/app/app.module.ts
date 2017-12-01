@@ -13,6 +13,7 @@ import {SerieService} from './series/serie.service';
 import {HttpModule} from '@angular/http';
 import { SerieStartComponent } from './series/serie-list/serie-start/serie-start.component';
 import { SerieDetailComponent } from './series/serie-detail/serie-detail.component';
+import { AdvancedComponent } from './advanced/advanced.component';
 
 
 @NgModule({
@@ -23,7 +24,8 @@ import { SerieDetailComponent } from './series/serie-detail/serie-detail.compone
     SerieListComponent,
     SerieItemComponent,
     SerieStartComponent,
-    SerieDetailComponent
+    SerieDetailComponent,
+    AdvancedComponent
   ],
   imports: [
     BrowserModule,
