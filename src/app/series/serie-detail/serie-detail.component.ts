@@ -23,7 +23,7 @@ export class SerieDetailComponent implements OnInit {
         (params: Params) => {
           this.id = params['id'];
           this.serieService.getSerie(this.id).then(res => {
-            this.serie = res;
+            this.serie = res[0];
           });
         }
       );
