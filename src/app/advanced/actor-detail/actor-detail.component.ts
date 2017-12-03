@@ -11,6 +11,7 @@ export class ActorDetailComponent implements OnInit {
   constructor() { }
 
   ngOnInit() {
+    console.log(this.character.actors[0].name);
   }
 
 }
