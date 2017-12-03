@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import {ActivatedRoute, Params, Router} from '@angular/router';
 import {SerieService} from '../series/serie.service';
 import {Serie} from '../series/serie.model';
+import {Character} from '../series/character.model';
 
 @Component({
   selector: 'app-advanced',
@@ -10,6 +11,8 @@ import {Serie} from '../series/serie.model';
 })
 export class AdvancedComponent implements OnInit {
   serie: Serie = new Serie({name: 'loading', imagePath: ''});
+  character: { name: string, description: string, imagePath: string};
+
   id: string;
 
   constructor(private serieService: SerieService,
@@ -27,6 +30,14 @@ export class AdvancedComponent implements OnInit {
           });
         }
       );
+  }
+
+  onSerieSelected(character: Character) {
+    console.log('click2');
+    this.character = character;
+    console.log(character);
+
+
   }
 
 

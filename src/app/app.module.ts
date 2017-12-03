@@ -14,6 +14,8 @@ import {HttpModule} from '@angular/http';
 import { SerieStartComponent } from './series/serie-list/serie-start/serie-start.component';
 import { SerieDetailComponent } from './series/serie-detail/serie-detail.component';
 import { AdvancedComponent } from './advanced/advanced.component';
+import { ActorItemComponent } from './advanced/actor-item/actor-item.component';
+import { ActorDetailComponent } from './advanced/actor-detail/actor-detail.component';
 
 
 
@@ -26,7 +28,9 @@ import { AdvancedComponent } from './advanced/advanced.component';
     SerieItemComponent,
     SerieStartComponent,
     SerieDetailComponent,
-    AdvancedComponent
+    AdvancedComponent,
+    ActorItemComponent,
+    ActorDetailComponent
   ],
   imports: [
     BrowserModule,

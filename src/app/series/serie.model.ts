@@ -4,11 +4,19 @@ export class Serie {
   private _description: string;
   private _imagepath: string;
   // private creators
-  // private characters
+  private _characters: [object]
 
 
   constructor(values: object = {}) {
     Object.assign(this, values);
+  }
+
+  public get characters() {
+    return this._characters;
+  }
+
+  public set characters(n: [object]) {
+    this._characters = n;
   }
 
   public get _id() {
