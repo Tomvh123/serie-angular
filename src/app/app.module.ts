@@ -16,6 +16,7 @@ import { SerieDetailComponent } from './series/serie-detail/serie-detail.compone
 import { AdvancedComponent } from './advanced/advanced.component';
 import { ActorItemComponent } from './advanced/actor-item/actor-item.component';
 import { ActorDetailComponent } from './advanced/actor-detail/actor-detail.component';
+import { PageNotFountComponent } from './page-not-fount/page-not-fount.component';
 
 
 
@@ -30,7 +31,8 @@ import { ActorDetailComponent } from './advanced/actor-detail/actor-detail.compo
     SerieDetailComponent,
     AdvancedComponent,
     ActorItemComponent,
-    ActorDetailComponent
+    ActorDetailComponent,
+    PageNotFountComponent
   ],
   imports: [
     BrowserModule,

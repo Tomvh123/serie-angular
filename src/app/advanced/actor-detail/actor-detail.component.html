@@ -1,4 +1,22 @@
+<div class="row">
+  <div class="col-xs-12">
+    <img
+      [src]="character.imagePath"
+      alt="image not found"
+      class="img-responsive img-rounded"
+      style="max-height: 300px;">
+  </div>
+</div>
+<h1>{{character.name}}</h1>
 <p>
-  {{character.name}}
-  {{character.actors[0].name}}
+  Played by: {{character.actors[0].name}}
 </p>
+<div class="row">
+  <div class="col-xs-12">
+    <img
+      [src]="character.actors[0].imagePath"
+      alt="image not found"
+      class="img-responsive img-rounded"
+      style="max-height: 300px;">
+  </div>
+</div>

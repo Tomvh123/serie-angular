@@ -5,6 +5,7 @@ import {SerieStartComponent} from './series/serie-list/serie-start/serie-start.c
 import {SerieDetailComponent} from './series/serie-detail/serie-detail.component';
 import {AdvancedComponent} from './advanced/advanced.component';
 import {ActorDetailComponent} from './advanced/actor-detail/actor-detail.component';
+import {PageNotFountComponent} from './page-not-fount/page-not-fount.component';
 
 const appRoutes: Routes = [
   {path: '', redirectTo: '/series', pathMatch: 'full'},
@@ -15,8 +16,10 @@ const appRoutes: Routes = [
   {path: 'advanced/:id', component: AdvancedComponent, children: [
     {path: '', component: SerieStartComponent},
     {path: ':name', component: ActorDetailComponent}
-  ]}
+  ]},
+  {path: '**', component: PageNotFountComponent}
 ];
+
 
 @NgModule({
   imports: [RouterModule.forRoot(appRoutes)],
