@@ -16,6 +16,7 @@ import { SerieDetailComponent } from './series/serie-detail/serie-detail.compone
 import { AdvancedComponent } from './advanced/advanced.component';
 
 
+
 @NgModule({
   declarations: [
     AppComponent,
