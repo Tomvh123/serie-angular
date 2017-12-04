@@ -45,4 +45,20 @@ export class SerieService {
         return error;
       });
   }
+
+  addSerie(serie: Serie) {
+    return this.http.post(this.serverUrl, serie, {headers: this.headers})
+      .toPromise()
+      .then(response => {
+        this.serieChanged.next(this.series.slice());
+      });
+  }
+
+  updateSerie(index: string, newSerie: Serie) {
+    return this.http.put(this.serverUrl + index, newSerie,  {headers: this.headers})
+      .toPromise()
+      .then(response => {
+        this.serieChanged.next(this.series);
+      });
+  }
 }

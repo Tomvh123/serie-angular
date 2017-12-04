@@ -19,6 +19,7 @@ import { ActorDetailComponent } from './advanced/actor-detail/actor-detail.compo
 import { PageNotFountComponent } from './page-not-fount/page-not-fount.component';
 
 import { EditSerieComponent } from './edit-serie/edit-serie.component';
+import {ReactiveFormsModule} from '@angular/forms';
 
 
 
@@ -41,6 +42,7 @@ import { EditSerieComponent } from './edit-serie/edit-serie.component';
     BrowserModule,
     AppRoutingModule,
     HttpModule,
+    ReactiveFormsModule
   ],
   providers: [SerieService],
   bootstrap: [AppComponent]
