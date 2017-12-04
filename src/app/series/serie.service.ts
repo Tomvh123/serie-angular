@@ -47,9 +47,11 @@ export class SerieService {
   }
 
   addSerie(serie: Serie) {
+    console.log(this.serverUrl);
     return this.http.post(this.serverUrl, serie, {headers: this.headers})
       .toPromise()
       .then(response => {
+        console.log(response);
         this.serieChanged.next(this.series.slice());
       });
   }

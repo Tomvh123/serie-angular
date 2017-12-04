@@ -25,6 +25,7 @@ export class EditSerieComponent implements OnInit {
       this.id = params['id'];
       this.edit = params['id'] != null;
       this.initForm();
+      console.log(this.edit);
 
     });
   }
@@ -44,7 +45,12 @@ export class EditSerieComponent implements OnInit {
   }
 
   onCancel() {
-    this.router.navigate(['../'], {relativeTo: this.route});
+    if (!this.edit) {
+      this.router.navigate(['../'], {relativeTo: this.route});
+    } else {
+      this.router.navigate(['/advanced/' + this.id]);
+    }
+
   }
 
   private initForm() {
@@ -73,8 +79,8 @@ export class EditSerieComponent implements OnInit {
       'imagePath': new FormControl('', Validators.required),
       'description': new FormControl('', Validators.required),
       'start': new FormControl('', Validators.required),
-      'seasons': new FormControl('', Validators.required),
-      'episodes': new FormControl('', Validators.required),
+      'seasons': new FormControl(0, Validators.required),
+      'episodes': new FormControl(0, Validators.required),
       'language': new FormControl('', Validators.required),
 
     });
