@@ -11,7 +11,7 @@ import {Character} from '../series/character.model';
 })
 export class AdvancedComponent implements OnInit {
   serie: Serie = new Serie({name: 'loading', imagePath: ''});
-  character: { name: string, description: string, imagePath: string};
+  character: Character;
 
   id: string;
 

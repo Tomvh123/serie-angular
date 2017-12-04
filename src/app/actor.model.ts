@@ -3,6 +3,7 @@ export class Actor {
   private _name: string;
   private _description: string;
   private _imagepath: string;
+  private _birthDate: Date;
 
   public get _id() {
     return this.id;
@@ -34,5 +35,13 @@ export class Actor {
 
   public set imagePath(n: string) {
     this._imagepath = n;
+  }
+
+  public get birthDate() {
+    return this._birthDate;
+  }
+
+  public set birthDate(n: Date) {
+    this._birthDate = n;
   }
 }
