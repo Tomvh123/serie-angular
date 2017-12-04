@@ -6,6 +6,7 @@ import {SerieDetailComponent} from './series/serie-detail/serie-detail.component
 import {AdvancedComponent} from './advanced/advanced.component';
 import {ActorDetailComponent} from './advanced/actor-detail/actor-detail.component';
 import {PageNotFountComponent} from './page-not-fount/page-not-fount.component';
+import {EditSerieComponent} from './edit-serie/edit-serie.component';
 
 const appRoutes: Routes = [
   {path: '', redirectTo: '/series', pathMatch: 'full'},
@@ -15,8 +16,9 @@ const appRoutes: Routes = [
   ]},
   {path: 'advanced/:id', component: AdvancedComponent, children: [
     {path: '', component: SerieStartComponent},
-    {path: ':name', component: ActorDetailComponent}
+    // {path: ':name', component: ActorDetailComponent}
   ]},
+  {path: 'edit/:id', component: EditSerieComponent},
   {path: '**', component: PageNotFountComponent}
 ];
 

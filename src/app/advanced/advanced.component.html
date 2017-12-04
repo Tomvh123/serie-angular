@@ -15,46 +15,43 @@
       </div>
     </div>
 
-    <div class="row" >
+    <div class="row">
       <div class="col-xs-12">
         <hr>
         <p>{{serie.description}}</p>
       </div>
     </div>
 
-    <div class="row" >
+    <div class="row">
       <div class="col-xs-12">
 
       </div>
     </div>
   </div>
-<div class="col-md-6">
-  <h1>More info</h1>
-  <p>Started: {{serie.start}}</p>
-  <p>Seasons: {{serie.seasons}}</p>
-  <p>Episodes: {{serie.episodes}}</p>
-  <p>Language: {{serie.language}}</p>
-  <ul>
-  Actors:
+  <div class="col-md-6">
+    <h1>More info</h1>
+    <p>Started: {{serie.start}}</p>
+    <p>Seasons: {{serie.seasons}}</p>
+    <p>Episodes: {{serie.episodes}}</p>
+    <p>Language: {{serie.language}}</p>
+    <ul>
+      Actors:
       <ul>
-        <li class= "list-group-item"*ngFor="let actorEl of serie.characters">{{actorEl.actors[0].name}} </li>
+        <li class="list-group-item" *ngFor="let actorEl of serie.characters">{{actorEl.actors[0].name}}</li>
       </ul>
 
-  </ul>
-  <ul>
-    Creators:
+    </ul>
     <ul>
-      <li class= "list-group-item"*ngFor="let creatorEL of serie.creators">{{creatorEL.name}} </li>
+      Creators:
+      <ul>
+        <li class="list-group-item" *ngFor="let creatorEL of serie.creators">{{creatorEL.name}}</li>
+      </ul>
+
     </ul>
 
-  </ul>
 
-
-
+  </div>
 </div>
-</div>
-
-
 
 
 <hr>
@@ -76,8 +73,8 @@
   </div>
   <div class="col-md-6">
     <app-actor-detail
-    *ngIf="character; else infoText"
-    [character]="character"></app-actor-detail>
+      *ngIf="character; else infoText"
+      [character]="character"></app-actor-detail>
     <ng-template #infoText>
       <p>Select an character</p>
     </ng-template>

@@ -18,6 +18,8 @@ import { ActorItemComponent } from './advanced/actor-item/actor-item.component';
 import { ActorDetailComponent } from './advanced/actor-detail/actor-detail.component';
 import { PageNotFountComponent } from './page-not-fount/page-not-fount.component';
 
+import { EditSerieComponent } from './edit-serie/edit-serie.component';
+
 
 
 @NgModule({
@@ -32,7 +34,8 @@ import { PageNotFountComponent } from './page-not-fount/page-not-fount.component
     AdvancedComponent,
     ActorItemComponent,
     ActorDetailComponent,
-    PageNotFountComponent
+    PageNotFountComponent,
+    EditSerieComponent
   ],
   imports: [
     BrowserModule,
