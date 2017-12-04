@@ -3,12 +3,76 @@ export class Serie {
   private _name: string;
   private _description: string;
   private _imagepath: string;
-  // private creators
-  // private characters
+  private _creators: [object];
+  private _characters: [object];
+  private _start: Date;
+  private _seasons: Number;
+  private _episodes: Number;
+  private _language: string;
+  private _genre: [string];
+
+
+  public get start() {
+
+    return this._start;
+  }
+
+  public set start(n: Date) {
+
+    this._start = n;
+  }
+
+  public get seasons() {
+    return this._seasons;
+  }
+
+  public set soasons(n: Number) {
+    this._seasons = n;
+  }
+
+  public get episodes() {
+    return this._episodes;
+  }
+
+  public set episodes(n: Number) {
+    this._episodes = n;
+  }
+
+  public get language() {
+    return this._language;
+  }
+
+  public set language(n: string) {
+    this._language = n;
+  }
+
+  public get genre() {
+    return this._genre;
+  }
+
+  public set gengre(n: [string]) {
+    this._genre = n;
+  }
 
 
   constructor(values: object = {}) {
     Object.assign(this, values);
+  }
+
+  public get characters() {
+    return this._characters;
+  }
+
+  public set characters(n: [object]) {
+    this._characters = n;
+  }
+
+  public get creators() {
+    return this._creators;
+  }
+
+  public set creators(n: [object]) {
+    this._creators = n;
   }
 
   public get _id() {

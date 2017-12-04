@@ -29,16 +29,58 @@
     </div>
   </div>
 <div class="col-md-6">
-  <h1>Works</h1>
+  <h1>More info</h1>
+  <p>Started: {{serie.start}}</p>
+  <p>Seasons: {{serie.seasons}}</p>
+  <p>Episodes: {{serie.episodes}}</p>
+  <p>Language: {{serie.language}}</p>
+  <ul>
+  Actors:
+      <ul>
+        <li class= "list-group-item"*ngFor="let actorEl of serie.characters">{{actorEl.actors[0].name}} </li>
+      </ul>
+
+  </ul>
+  <ul>
+    Creators:
+    <ul>
+      <li class= "list-group-item"*ngFor="let creatorEL of serie.creators">{{creatorEL.name}} </li>
+    </ul>
+
+  </ul>
+
+
+
 </div>
 </div>
+
+
+
+
 <hr>
+
+<div class="row">
+  <div class="col-xs-12">
+    <h1>characters</h1>
+
+  </div>
+</div>
 <div class="row">
   <div class="col-md-6">
-    <h1>test1</h1>
+    <app-actor-item
+      *ngFor="let characterEL of serie.characters"
+      [character]="characterEL"
+      (characterSelected)="onSerieSelected(characterEL)">
+
+    </app-actor-item>
   </div>
   <div class="col-md-6">
-    <h1>test2</h1>
+    <app-actor-detail
+    *ngIf="character; else infoText"
+    [character]="character"></app-actor-detail>
+    <ng-template #infoText>
+      <p>Select an character</p>
+    </ng-template>
   </div>
 
 </div>
