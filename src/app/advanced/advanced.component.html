@@ -37,8 +37,15 @@
   <ul>
   Actors:
       <ul>
-        <li class= "list-group-item"*ngFor="let actorEl of serie.characters">{{actorEl.actors[0].name}}, </li>
+        <li class= "list-group-item"*ngFor="let actorEl of serie.characters">{{actorEl.actors[0].name}} </li>
       </ul>
+
+  </ul>
+  <ul>
+    Creators:
+    <ul>
+      <li class= "list-group-item"*ngFor="let creatorEL of serie.creators">{{creatorEL.name}} </li>
+    </ul>
 
   </ul>
 
@@ -51,6 +58,13 @@
 
 
 <hr>
+
+<div class="row">
+  <div class="col-xs-12">
+    <h1>characters</h1>
+
+  </div>
+</div>
 <div class="row">
   <div class="col-md-6">
     <app-actor-item

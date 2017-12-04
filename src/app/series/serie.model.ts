@@ -3,8 +3,8 @@ export class Serie {
   private _name: string;
   private _description: string;
   private _imagepath: string;
-  // private creators
-  private _characters: [object]
+  private _creators: [object];
+  private _characters: [object];
   private _start: Date;
   private _seasons: Number;
   private _episodes: Number;
@@ -65,6 +65,14 @@ export class Serie {
 
   public set characters(n: [object]) {
     this._characters = n;
+  }
+
+  public get creators() {
+    return this._creators;
+  }
+
+  public set creators(n: [object]) {
+    this._creators = n;
   }
 
   public get _id() {
