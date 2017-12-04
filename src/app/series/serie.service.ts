@@ -3,6 +3,7 @@ import {Subject} from 'rxjs/Subject';
 import {environment} from '../../environments/environment';
 import {Http, Headers} from '@angular/http';
 import {Serie} from './serie.model';
+import {toPromise} from 'rxjs/operator/toPromise';
 
 @Injectable()
 export class SerieService {
@@ -58,6 +59,14 @@ export class SerieService {
 
   updateSerie(index: string, newSerie: Serie) {
     return this.http.put(this.serverUrl + index, newSerie,  {headers: this.headers})
+      .toPromise()
+      .then(response => {
+        this.serieChanged.next(this.series);
+      });
+  }
+
+  deleteSerie(index: string) {
+    return this.http.delete(this.serverUrl + index, {headers: this.headers})
       .toPromise()
       .then(response => {
         this.serieChanged.next(this.series);

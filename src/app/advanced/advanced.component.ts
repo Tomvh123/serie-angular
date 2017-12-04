@@ -41,6 +41,10 @@ export class AdvancedComponent implements OnInit {
     console.log(character);
 
   }
+  onSerieDelete() {
+    this.serieService.deleteSerie(this.id);
+    this.router.navigate(['/series']);
+  }
 
 
 
