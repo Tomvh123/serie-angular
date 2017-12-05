@@ -4,6 +4,7 @@ import {environment} from '../../environments/environment';
 import {Http, Headers} from '@angular/http';
 import {Serie} from './serie.model';
 import {toPromise} from 'rxjs/operator/toPromise';
+import {Character} from './character.model';
 
 @Injectable()
 export class SerieService {
@@ -57,6 +58,8 @@ export class SerieService {
       });
   }
 
+
+
   updateSerie(index: string, newSerie: Serie) {
     return this.http.put(this.serverUrl + index, newSerie,  {headers: this.headers})
       .toPromise()
@@ -72,4 +75,23 @@ export class SerieService {
         this.serieChanged.next(this.series);
       });
   }
+
+  addChar(char: Character) {
+    console.log(this.serverUrl);
+    return this.http.post(this.serverUrl, {character: [char]}, {headers: this.headers})
+      .toPromise()
+      .then(response => {
+        console.log(response);
+        this.serieChanged.next(this.series.slice());
+      });
+  }
+
+  updateChar(index: string, newSerie: Serie) {
+    return this.http.put(this.serverUrl + index, newSerie,  {headers: this.headers})
+      .toPromise()
+      .then(response => {
+        this.serieChanged.next(this.series);
+      });
+  }
+
 }

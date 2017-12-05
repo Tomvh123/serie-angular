@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import {FormGroup} from '@angular/forms';
+import {FormControl, FormGroup, Validators} from '@angular/forms';
 import {ActivatedRoute, Params, Router} from '@angular/router';
 import {SerieService} from '../series/serie.service';
 
@@ -39,6 +39,17 @@ export class EditCharacterComponent implements OnInit {
           this.serieService.serieChanged.next(series.slice());
         });
     }
+  }
+
+  private initForm() {
+
+
+    this.charForm = new FormGroup({
+      'name': new FormControl('', Validators.required),
+      'imagePath': new FormControl('', Validators.required),
+      'description': new FormControl('', Validators.required),
+      'birthDate': new FormControl('', Validators.required)
+    });
   }
 
 
