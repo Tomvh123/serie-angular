@@ -46,6 +46,7 @@ export class EditCharacterComponent implements OnInit {
       this.router.navigate(['advanced/' + this.id]);
     } else {
       this.serieService.addChar(this.serie, this.charForm.value);
+      console.log(this.charForm.value);
       this.serieService.getSeries()
         .then(series => {
           this.serieService.serieChanged.next(series.slice());
@@ -54,12 +55,14 @@ export class EditCharacterComponent implements OnInit {
   }
 
   onAddActor() {
+    const date = new Date('2015-05-05');
+    const actor = new Actor({ name: 'hans', description: 'test', imagePath: 'dkfjakdsjfkdf', birthDate: date});
     (<FormArray>this.charForm.get('actors')).push(
-      new FormGroup({
-        'name': new FormControl(null, Validators.required),
-        'description': new FormControl(null, Validators.required),
-        'imagePath': new FormControl(null, Validators.required),
-        'birthDate': new FormControl(null, Validators.required),
+       new FormGroup({
+        'name': new FormControl(actor.name),
+        'description': new FormControl(actor.description),
+        'imagePath': new FormControl(actor.imagePath),
+        'birthDate': new FormControl(actor.birthDate),
       })
     );
   }
