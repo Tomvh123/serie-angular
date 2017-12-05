@@ -59,7 +59,7 @@
   </div>
 </div>
 <hr>
-<button routerLink="/editChar" class="btn btn-primary">Add</button>
+<button routerLink="/editChar/{{serie._id}}" class="btn btn-primary">Add</button>
 <div class="row">
   <div class="col-xs-12">
     <h1>characters</h1>
@@ -70,6 +70,7 @@
     <app-actor-item
       *ngFor="let characterEL of serie.characters"
       [character]="characterEL"
+      [serieId]="serieId"
       (characterSelected)="onSerieSelected(characterEL)">
 
     </app-actor-item>
@@ -77,7 +78,8 @@
   <div class="col-md-6">
     <app-actor-detail
       *ngIf="character; else infoText"
-      [character]="character"></app-actor-detail>
+      [character]="character"
+    [serieId]="serie._id"></app-actor-detail>
     <ng-template #infoText>
       <p>Select an character</p>
     </ng-template>

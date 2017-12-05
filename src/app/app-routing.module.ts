@@ -23,8 +23,8 @@ const appRoutes: Routes = [
 
   {path: 'edit', component: EditSerieComponent},
   {path: 'edit/:id', component: EditSerieComponent},
-  {path: 'editChar', component: EditCharacterComponent},
   {path: 'editChar/:id', component: EditCharacterComponent},
+  {path: 'editChar/:id/:charid', component: EditCharacterComponent},
   {path: '**', component: PageNotFountComponent}
 ];
 

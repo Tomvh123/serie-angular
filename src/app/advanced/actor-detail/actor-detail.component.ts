@@ -8,6 +8,7 @@ import {Character} from '../../series/character.model';
 })
 export class ActorDetailComponent implements OnInit {
   @Input() character: Character;
+  @Input() serieId: string;
   constructor() { }
 
   ngOnInit() {

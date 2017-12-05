@@ -13,7 +13,7 @@ import {Character} from '../series/character.model';
 export class AdvancedComponent implements OnInit {
   serie: Serie = new Serie({name: 'loading', imagePath: ''});
   character: Character;
-  // creator: Creator;
+
 
   id: string;
 
@@ -23,6 +23,7 @@ export class AdvancedComponent implements OnInit {
   }
 
   ngOnInit() {
+
     this.route.params
       .subscribe(
         (params: Params) => {
