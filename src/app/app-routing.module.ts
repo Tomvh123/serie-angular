@@ -7,6 +7,7 @@ import {AdvancedComponent} from './advanced/advanced.component';
 import {ActorDetailComponent} from './advanced/actor-detail/actor-detail.component';
 import {PageNotFountComponent} from './page-not-fount/page-not-fount.component';
 import {EditSerieComponent} from './edit-serie/edit-serie.component';
+import {EditCharacterComponent} from './edit-character/edit-character.component';
 
 
 const appRoutes: Routes = [
@@ -22,6 +23,8 @@ const appRoutes: Routes = [
 
   {path: 'edit', component: EditSerieComponent},
   {path: 'edit/:id', component: EditSerieComponent},
+  {path: 'editChar', component: EditCharacterComponent},
+  {path: 'editChar/:id', component: EditCharacterComponent},
   {path: '**', component: PageNotFountComponent}
 ];
 
