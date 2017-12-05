@@ -3,7 +3,7 @@ import {ActivatedRoute, Params, Router} from '@angular/router';
 import {SerieService} from '../series/serie.service';
 import {Serie} from '../series/serie.model';
 import {Character} from '../series/character.model';
-import {Creator} from '../creator.model';
+
 
 @Component({
   selector: 'app-advanced',

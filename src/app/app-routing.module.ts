@@ -8,16 +8,18 @@ import {ActorDetailComponent} from './advanced/actor-detail/actor-detail.compone
 import {PageNotFountComponent} from './page-not-fount/page-not-fount.component';
 import {EditSerieComponent} from './edit-serie/edit-serie.component';
 
+
 const appRoutes: Routes = [
   {path: '', redirectTo: '/series', pathMatch: 'full'},
-  {path: 'series', component: SeriesComponent, children: [
+  {
+    path: 'series', component: SeriesComponent, children: [
     {path: '', component: SerieStartComponent},
-    {path: ':id', component: SerieDetailComponent}
-  ]},
-  {path: 'advanced/:id', component: AdvancedComponent, children: [
-    {path: '', component: SerieStartComponent},
-    // {path: ':name', component: ActorDetailComponent}
-  ]},
+    {path: ':id', component: SerieDetailComponent}]
+  },
+  {
+    path: 'advanced/:id', component: AdvancedComponent
+  },
+
   {path: 'edit', component: EditSerieComponent},
   {path: 'edit/:id', component: EditSerieComponent},
   {path: '**', component: PageNotFountComponent}

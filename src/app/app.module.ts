@@ -22,7 +22,6 @@ import { EditSerieComponent } from './edit-serie/edit-serie.component';
 import {ReactiveFormsModule} from '@angular/forms';
 
 
-
 @NgModule({
   declarations: [
     AppComponent,
@@ -36,7 +35,7 @@ import {ReactiveFormsModule} from '@angular/forms';
     ActorItemComponent,
     ActorDetailComponent,
     PageNotFountComponent,
-    EditSerieComponent
+    EditSerieComponent,
   ],
   imports: [
     BrowserModule,
