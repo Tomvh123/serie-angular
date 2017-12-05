@@ -2,6 +2,9 @@ import { Component, OnInit } from '@angular/core';
 import {FormControl, FormGroup, Validators} from '@angular/forms';
 import {ActivatedRoute, Params, Router} from '@angular/router';
 import {SerieService} from '../series/serie.service';
+import {Serie} from '../series/serie.model';
+import {Actor} from '../actor.model';
+import {Character} from '../series/character.model';
 
 @Component({
   selector: 'app-edit-character',
@@ -10,7 +13,11 @@ import {SerieService} from '../series/serie.service';
 })
 export class EditCharacterComponent implements OnInit {
   id: string;
+  idChar: string;
   edit = false;
+  serie: Serie;
+  actors: [Actor];
+  character: Character;
   charForm: FormGroup;
 
   constructor(private route: ActivatedRoute,
@@ -18,27 +25,36 @@ export class EditCharacterComponent implements OnInit {
               private router: Router) { }
 
   ngOnInit() {
+    this.serieService.getActors()
+      .then(actors => this.actors = actors);
     this.route.params.subscribe((params: Params) => {
       this.id = params['id'];
-      this.edit = params['id'] != null;
-      //this.initForm();
+      this.idChar = params['charid'];
+      this.edit = params['charid'] != null;
+      this.initForm();
       console.log(this.edit);
+      this.serieService.getSerie(this.id)
+        .then(series => this.serie = series);
 
     });
   }
 
   onSubmit() {
     if (this.edit) {
-      console.log(this.charForm.value);
-      this.serieService.updateChar(this.id, this.charForm.value);
+
+      this.serieService.updateChar( 'dfdf', this.charForm.value);
       this.router.navigate(['advanced/' + this.id]);
     } else {
-      this.serieService.addChar(this.charForm.value);
+      this.serieService.addChar(this.serie, this.charForm.value);
       this.serieService.getSeries()
         .then(series => {
           this.serieService.serieChanged.next(series.slice());
         });
     }
+  }
+
+  onCancel() {
+    this.router.navigate(['/advanced/' + this.id]);
   }
 
   private initForm() {
@@ -48,7 +64,8 @@ export class EditCharacterComponent implements OnInit {
       'name': new FormControl('', Validators.required),
       'imagePath': new FormControl('', Validators.required),
       'description': new FormControl('', Validators.required),
-      'birthDate': new FormControl('', Validators.required)
+      'birthDate': new FormControl('', Validators.required),
+      'actors': new FormControl('', Validators.required)
     });
   }
 

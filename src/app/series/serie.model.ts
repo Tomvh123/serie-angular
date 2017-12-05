@@ -26,7 +26,7 @@ export class Serie {
     return this._seasons;
   }
 
-  public set soasons(n: Number) {
+  public set seasons(n: Number) {
     this._seasons = n;
   }
 

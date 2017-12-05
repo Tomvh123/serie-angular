@@ -5,6 +5,10 @@ export class Actor {
   private _imagepath: string;
   private _birthDate: Date;
 
+  constructor(values: object = {}) {
+    Object.assign(this, values);
+  }
+
   public get _id() {
     return this.id;
   }

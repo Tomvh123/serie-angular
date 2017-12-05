@@ -5,6 +5,7 @@ import {Http, Headers} from '@angular/http';
 import {Serie} from './serie.model';
 import {toPromise} from 'rxjs/operator/toPromise';
 import {Character} from './character.model';
+import {Actor} from '../actor.model';
 
 @Injectable()
 export class SerieService {
@@ -14,6 +15,7 @@ export class SerieService {
   private serverUrl = environment.serverUrl + '/series/';
 
   private series: Serie[];
+  private actors: Actor[];
 
   constructor(private http: Http) {
 
@@ -76,13 +78,16 @@ export class SerieService {
       });
   }
 
-  addChar(char: Character) {
-    console.log(this.serverUrl);
-    return this.http.post(this.serverUrl, {character: [char]}, {headers: this.headers})
+  addChar(serie: Serie, char: Character) {
+    const actor = new Actor({name: 'test test', description: 'test', imagePath: 'https://s3-storage.textopus.nl/wp-content/uploads/2014/06/21163734/The-Test-Fun-for-Friends-iPhone-iPad.png', birthDate: '2000-0-0'});
+    console.log(char)
+    console.log(char.actors)
+    serie.characters.push(char);
+    return this.http.put(this.serverUrl + serie._id, serie, {headers: this.headers})
       .toPromise()
       .then(response => {
         console.log(response);
-        this.serieChanged.next(this.series.slice());
+        this.serieChanged.next(this.series);
       });
   }
 
@@ -91,6 +96,19 @@ export class SerieService {
       .toPromise()
       .then(response => {
         this.serieChanged.next(this.series);
+      });
+  }
+
+  getActors() {
+
+    return this.http.get(this.serverUrl, {headers: this.headers})
+      .toPromise()
+      .then(response => {
+        this.actors = response.json() as Actor[];
+        return response.json() as Serie[];
+      })
+      .catch(error => {
+        return error;
       });
   }
 
