@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import {FormControl, FormGroup, Validators} from '@angular/forms';
+import {FormControl, FormGroup, Validators, FormArray} from '@angular/forms';
 import {ActivatedRoute, Params, Router} from '@angular/router';
 import {SerieService} from '../series/serie.service';
 import {Serie} from '../series/serie.model';
@@ -53,19 +53,36 @@ export class EditCharacterComponent implements OnInit {
     }
   }
 
+  onAddActor() {
+    (<FormArray>this.charForm.get('actors')).push(
+      new FormGroup({
+        'name': new FormControl(null, Validators.required),
+        'description': new FormControl(null, Validators.required),
+        'imagePath': new FormControl(null, Validators.required),
+        'birthDate': new FormControl(null, Validators.required),
+      })
+    );
+  }
+
+  onDeleteActors(index: number) {
+    (<FormArray>this.charForm.get('actors')).removeAt(index);
+
+  }
+
   onCancel() {
     this.router.navigate(['/advanced/' + this.id]);
   }
 
   private initForm() {
 
+    const characterActors = new FormArray([]);
 
     this.charForm = new FormGroup({
       'name': new FormControl('', Validators.required),
       'imagePath': new FormControl('', Validators.required),
       'description': new FormControl('', Validators.required),
       'birthDate': new FormControl('', Validators.required),
-      'actors': new FormControl('', Validators.required)
+      'actors': new FormArray([])
     });
   }
 
