@@ -71,7 +71,7 @@
               </div>
             </div>
           </div>
-          <div class="row">
+          <!--<div class="row">
             <div class="col-xs-12">
               <div class="form-group">
                 <label for="actors">testactor:</label>
@@ -82,7 +82,7 @@
                   class="form-control">
               </div>
             </div>
-          </div>
+          </div>-->
 
           <div class="row">
             <div class="col-xs-12" formArrayName="actors">
@@ -96,13 +96,7 @@
                   <input
                     type="text"
                     class="form-control"
-                    formControlName="name">
-                </div>
-                <div class="col-xs-2">
-                  <input
-                    type="text"
-                    class="form-control"
-                    formControlName="description">
+                    formControlName="_id">
                 </div>
                 <div class="col-xs-2">
                   <button
@@ -117,7 +111,7 @@
                   <button
                     type="button"
                     class="btn btn-success"
-                  (click)="onAddActor()">Add Ingredient</button>
+                  (click)="onAddActor()">Add actor</button>
                 </div>
               </div>
             </div>
@@ -128,6 +122,6 @@
   </div>
 
   <div class="col-md-6" >
-    test
+    <app-actor-list></app-actor-list>
   </div>
 </div>

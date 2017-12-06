@@ -32,7 +32,6 @@ export class EditCharacterComponent implements OnInit {
       this.idChar = params['charid'];
       this.edit = params['charid'] != null;
       this.initForm();
-      console.log(this.edit);
       this.serieService.getSerie(this.id)
         .then(series => this.serie = series);
 
@@ -46,25 +45,21 @@ export class EditCharacterComponent implements OnInit {
       this.router.navigate(['advanced/' + this.id]);
     } else {
       this.serieService.addChar(this.serie, this.charForm.value);
-      console.log(this.charForm.value);
-      this.serieService.getSeries()
+      /*this.serieService.getSeries()
         .then(series => {
           this.serieService.serieChanged.next(series.slice());
-        });
+        });*/
     }
   }
 
   onAddActor() {
-    const date = new Date('2015-05-05');
-    const actor = new Actor({ name: 'hans', description: 'test', imagePath: 'dkfjakdsjfkdf', birthDate: date});
     (<FormArray>this.charForm.get('actors')).push(
-       new FormGroup({
-        'name': new FormControl(actor.name),
-        'description': new FormControl(actor.description),
-        'imagePath': new FormControl(actor.imagePath),
-        'birthDate': new FormControl(actor.birthDate),
+      new FormGroup({
+        '_id': new FormControl('5a27cfcf4223f601f0957851', Validators.required)
       })
     );
+
+
   }
 
   onDeleteActors(index: number) {
@@ -86,6 +81,7 @@ export class EditCharacterComponent implements OnInit {
       'description': new FormControl('', Validators.required),
       'birthDate': new FormControl('', Validators.required),
       'actors': new FormArray([])
+      // 'actors': new FormControl('5a27b83e3a7827198c35c304', Validators.required)
     });
   }
 

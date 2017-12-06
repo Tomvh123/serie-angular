@@ -37,7 +37,7 @@
     <ul>
       Actors:
       <ul>
-        <li class="list-group-item" *ngFor="let actorEl of serie.characters">{{actorEl.actors[0].name}}</li>
+        <!--<li class="list-group-item" *ngFor="let actorEl of serie.characters">{{actorEl.actors[0].name}}</li>-->
       </ul>
 
     </ul>
@@ -79,7 +79,7 @@
     <app-actor-detail
       *ngIf="character; else infoText"
       [character]="character"
-    [serieId]="serie._id"></app-actor-detail>
+    [serieId]="ser"></app-actor-detail>
     <ng-template #infoText>
       <p>Select an character</p>
     </ng-template>

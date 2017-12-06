@@ -1,0 +1,11 @@
+<h1>Actors:</h1>
+<button class="btn btn-success">Add new actor??</button>
+<hr>
+<div class="row">
+  <div class="col-xs-12">
+    <app-actor-item-edit
+      *ngFor="let actorEl of actors; let i = index"
+      [actorEdit]="actorEl"
+      [index]="i"></app-actor-item-edit>
+  </div>
+</div>

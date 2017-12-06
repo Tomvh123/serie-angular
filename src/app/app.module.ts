@@ -21,6 +21,8 @@ import { PageNotFountComponent } from './page-not-fount/page-not-fount.component
 import { EditSerieComponent } from './edit-serie/edit-serie.component';
 import {ReactiveFormsModule} from '@angular/forms';
 import { EditCharacterComponent } from './edit-character/edit-character.component';
+import { ActorListComponent } from './edit-character/actor-list/actor-list.component';
+import { ActorItemEditComponent } from './edit-character/actor-list/actor-item-edit/actor-item-edit.component';
 
 
 @NgModule({
@@ -38,6 +40,8 @@ import { EditCharacterComponent } from './edit-character/edit-character.componen
     PageNotFountComponent,
     EditSerieComponent,
     EditCharacterComponent,
+    ActorListComponent,
+    ActorItemEditComponent,
   ],
   imports: [
     BrowserModule,

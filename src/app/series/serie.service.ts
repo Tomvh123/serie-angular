@@ -10,9 +10,11 @@ import {Actor} from '../actor.model';
 @Injectable()
 export class SerieService {
   serieChanged = new Subject<Serie[]>();
+  actorChanged = new Subject<Actor[]>();
 
   private headers = new Headers({'Content-Type': 'application/json'});
   private serverUrl = environment.serverUrl + '/series/';
+
 
   private series: Serie[];
   private actors: Actor[];
@@ -22,7 +24,6 @@ export class SerieService {
   }
 
   getSeries() {
-    console.log('getSeries');
     return this.http.get(this.serverUrl, {headers: this.headers})
       .toPromise()
       .then(response => {
@@ -79,10 +80,9 @@ export class SerieService {
   }
 
   addChar(serie: Serie, char: Character) {
-    const actor = new Actor({name: 'test test', description: 'test', imagePath: 'https://s3-storage.textopus.nl/wp-content/uploads/2014/06/21163734/The-Test-Fun-for-Friends-iPhone-iPad.png', birthDate: '2000-0-0'});
-    console.log(char)
-    console.log(char.actors)
+    // serie.characters.push(char);
     serie.characters.push(char);
+    console.log(serie);
     return this.http.put(this.serverUrl + serie._id, serie, {headers: this.headers})
       .toPromise()
       .then(response => {
@@ -101,7 +101,7 @@ export class SerieService {
 
   getActors() {
 
-    return this.http.get(this.serverUrl, {headers: this.headers})
+    return this.http.get('http://localhost:3000/api/v1/actors', {headers: this.headers})
       .toPromise()
       .then(response => {
         this.actors = response.json() as Actor[];
