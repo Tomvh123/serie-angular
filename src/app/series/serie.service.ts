@@ -18,6 +18,7 @@ export class SerieService {
 
   private series: Serie[];
   private actors: Actor[];
+  private characters: Character[];
 
   constructor(private http: Http) {
 
@@ -62,8 +63,16 @@ export class SerieService {
   }
 
 
-  updateSerie(index: string, newSerie: Serie) {
+  /*updateSerie(index: string, newSerie: Serie) {
     return this.http.put(this.serverUrl + index, newSerie, {headers: this.headers})
+      .toPromise()
+      .then(response => {
+        this.serieChanged.next(this.series);
+      });
+  }*/
+
+  updateSerie(index: string, char: Character) {
+    return this.http.put('http://localhost:3000/api/v1/characters/' + index, char, {headers: this.headers})
       .toPromise()
       .then(response => {
         this.serieChanged.next(this.series);
@@ -81,6 +90,32 @@ export class SerieService {
 
   // character
 
+  getChars() {
+    return this.http.get(environment.serverUrlChar, {headers: this.headers})
+      .toPromise()
+      .then(response => {
+        this.characters = response.json() as Character[];
+        return response.json() as Character[];
+      })
+      .catch(error => {
+        return error;
+      });
+
+  }
+
+  getChar(index: string) {
+    if (index == null)
+      return null;
+    return this.http.get(environment.serverUrlChar + index, {headers: this.headers})
+      .toPromise()
+      .then(response => {
+        return response.json();
+      })
+      .catch(error => {
+        console.log(error)
+        return error;
+      });
+  }
 
   addChar(serie: Serie, char: Character) {
     // serie.characters.push(char);
@@ -94,9 +129,10 @@ export class SerieService {
       });
   }
 
-  updateChar(serie: Serie, char: Character) {
+  updateChar(id: string, char: Character) {
     console.log('update');
-    return this.http.put(this.serverUrl + serie._id, serie, {headers: this.headers})
+    console.log()
+    return this.http.put(environment.serverUrlChar + id, char, {headers: this.headers})
       .toPromise()
       .then(response => {
         console.log(response);

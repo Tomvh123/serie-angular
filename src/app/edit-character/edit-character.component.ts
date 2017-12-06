@@ -13,7 +13,7 @@ import {Character} from '../series/character.model';
 })
 export class EditCharacterComponent implements OnInit {
   id: string;
-  idChar: number;
+  idChar: string;
   edit = false;
   serie: Serie;
   actors: [Actor];
@@ -32,7 +32,7 @@ export class EditCharacterComponent implements OnInit {
       .then(actors => this.actors = actors);
     this.route.params.subscribe((params: Params) => {
       this.id = params['id'];
-      this.idChar = +params['charid'];
+      this.idChar = params['charid'];
       this.edit = params['charid'] != null;
       console.log(this.edit);
       this.initForm();
@@ -44,10 +44,13 @@ export class EditCharacterComponent implements OnInit {
 
   onSubmit() {
     if (this.edit) {
-      this.serie.characters.splice(this.idChar, this.idChar + 1);
+      /*this.serie.characters.splice(this.idChar, this.idChar + 1);
       this.serie.characters.push(this.charForm.value);
       this.serieService.updateChar(this.serie, this.charForm.value);
+      this.router.navigate(['advanced/' + this.id]);*/
+      console.log(this.charForm.value);
       this.router.navigate(['advanced/' + this.id]);
+      this.serieService.updateChar(this.idChar, this.charForm.value);
     } else {
       this.serieService.addChar(this.serie, this.charForm.value);
       this.router.navigate(['advanced/' + this.id]);
@@ -79,11 +82,10 @@ export class EditCharacterComponent implements OnInit {
 
     const characterActors = new FormArray([]);
     if (this.edit) {
-      this.serieService.getSerie(this.id)
-        .then(serie => this.serie = serie)
-        .then(() => this.character = this.serie.characters[this.idChar])
+      this.serieService.getChar(this.idChar).then((res) => console.log(res))
+      this.serieService.getChar(this.idChar)
+        .then(char => this.character = char[0])
         .then(() =>
-
           this.charForm = new FormGroup({
             '_id': new FormControl(this.character._id, Validators.required),
             'name': new FormControl(this.character.name, Validators.required),

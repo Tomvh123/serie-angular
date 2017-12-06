@@ -7,7 +7,7 @@
       class="list-group-item clearfix">
       <div class="pull-right">
         <h4 class="list-group-item-heading">{{ character.name }}</h4>
-        <p> {{character.actors[0].name}}</p>
+        <!--<p> {{character.actors[0].name}}</p>-->
       </div>
       <span class="pull-left">
         <img
@@ -19,7 +19,7 @@
     </a>
   </div>
   <div class="col-sm-1">
-    <button routerLink="/editChar/{{serieId}}/{{index}}" class="btn btn-primary">Edit</button>
+    <button routerLink="/editChar/{{serieId}}/{{character._id}}" class="btn btn-primary">Edit</button>
   </div>
 </div>
 

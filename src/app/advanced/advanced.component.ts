@@ -20,6 +20,8 @@ export class AdvancedComponent implements OnInit {
   constructor(private serieService: SerieService,
               private route: ActivatedRoute,
               private router: Router) {
+    console.log('advanced');
+
   }
 
   ngOnInit() {
@@ -29,7 +31,7 @@ export class AdvancedComponent implements OnInit {
           this.id = params['id'];
           this.serieService.getSerie(this.id).then(res => {
             this.serie = res;
-            console.log(res);
+            console.log(this.serie);
           });
         }
       );
