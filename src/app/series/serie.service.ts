@@ -35,7 +35,7 @@ export class SerieService {
       });
 
 
-}
+  }
 
   getSerie(index: string) {
     if (index == null)
@@ -62,9 +62,8 @@ export class SerieService {
   }
 
 
-
   updateSerie(index: string, newSerie: Serie) {
-    return this.http.put(this.serverUrl + index, newSerie,  {headers: this.headers})
+    return this.http.put(this.serverUrl + index, newSerie, {headers: this.headers})
       .toPromise()
       .then(response => {
         this.serieChanged.next(this.series);
@@ -78,6 +77,10 @@ export class SerieService {
         this.serieChanged.next(this.series);
       });
   }
+
+
+  // character
+
 
   addChar(serie: Serie, char: Character) {
     // serie.characters.push(char);
@@ -102,13 +105,8 @@ export class SerieService {
 
   }
 
-  /*updateChar(index: string, newSerie: Serie) {
-    return this.http.put(this.serverUrl + index, newSerie,  {headers: this.headers})
-      .toPromise()
-      .then(response => {
-        this.serieChanged.next(this.series);
-      });
-  }*/
+
+  //actors
 
   getActors() {
 

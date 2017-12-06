@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {FormControl, FormGroup, Validators, FormArray} from '@angular/forms';
 import {ActivatedRoute, Params, Router} from '@angular/router';
 import {SerieService} from '../series/serie.service';
@@ -23,7 +23,8 @@ export class EditCharacterComponent implements OnInit {
 
   constructor(private route: ActivatedRoute,
               private serieService: SerieService,
-              private router: Router) { }
+              private router: Router) {
+  }
 
   ngOnInit() {
 
@@ -43,12 +44,10 @@ export class EditCharacterComponent implements OnInit {
 
   onSubmit() {
     if (this.edit) {
-      // this.serie.characters.push(this.charForm.value);
       this.serie.characters.splice(this.idChar, this.idChar + 1);
       this.serie.characters.push(this.charForm.value);
-      console.log(this.serie);
-      this.serieService.updateChar( this.serie, this.charForm.value);
-      // this.router.navigate(['advanced/' + this.id]);
+      this.serieService.updateChar(this.serie, this.charForm.value);
+      this.router.navigate(['advanced/' + this.id]);
     } else {
       this.serieService.addChar(this.serie, this.charForm.value);
       this.router.navigate(['advanced/' + this.id]);
@@ -67,7 +66,6 @@ export class EditCharacterComponent implements OnInit {
   }
 
 
-
   onDeleteActors(index: number) {
     (<FormArray>this.charForm.get('actors')).removeAt(index);
 
@@ -80,23 +78,22 @@ export class EditCharacterComponent implements OnInit {
   private initForm() {
 
     const characterActors = new FormArray([]);
-    if(this.edit){
+    if (this.edit) {
       this.serieService.getSerie(this.id)
         .then(serie => this.serie = serie)
         .then(() => this.character = this.serie.characters[this.idChar])
         .then(() =>
 
-      this.charForm = new FormGroup({
-        '_id': new FormControl(this.character._id, Validators.required),
-        'name': new FormControl(this.character.name, Validators.required),
-        'imagePath': new FormControl(this.character.imagePath, Validators.required),
-        'description': new FormControl(this.character.description, Validators.required),
-        'birthDate': new FormControl(this.character.birthDate, Validators.required),
-        'actors': new FormArray([])
-        // 'actors': new FormControl('5a27b83e3a7827198c35c304', Validators.required)
-      })
-      );
-
+          this.charForm = new FormGroup({
+            '_id': new FormControl(this.character._id, Validators.required),
+            'name': new FormControl(this.character.name, Validators.required),
+            'imagePath': new FormControl(this.character.imagePath, Validators.required),
+            'description': new FormControl(this.character.description, Validators.required),
+            'birthDate': new FormControl(this.character.birthDate, Validators.required),
+            'actors': new FormArray([])
+            // 'actors': new FormControl('5a27b83e3a7827198c35c304', Validators.required)
+          })
+        );
 
 
     }
@@ -111,7 +108,6 @@ export class EditCharacterComponent implements OnInit {
       // 'actors': new FormControl('5a27b83e3a7827198c35c304', Validators.required)
     });
   }
-
 
 
 }
