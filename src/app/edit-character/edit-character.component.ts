@@ -80,22 +80,38 @@ export class EditCharacterComponent implements OnInit {
 
   private initForm() {
 
-    const characterActors = new FormArray([]);
+    const characterActors = new FormArray([], Validators.required);
     if (this.edit) {
       this.serieService.getChar(this.idChar).then((res) => console.log(res))
       this.serieService.getChar(this.idChar)
-        .then(char => this.character = char[0])
-        .then(() =>
-          this.charForm = new FormGroup({
-            '_id': new FormControl(this.character._id, Validators.required),
-            'name': new FormControl(this.character.name, Validators.required),
-            'imagePath': new FormControl(this.character.imagePath, Validators.required),
-            'description': new FormControl(this.character.description, Validators.required),
-            'birthDate': new FormControl(this.character.birthDate, Validators.required),
-            'actors': new FormArray([])
-            // 'actors': new FormControl('5a27b83e3a7827198c35c304', Validators.required)
-          })
-        );
+        .then(char => {
+          this.character = char[0];
+        if (char[0]['actors']) {
+          console.log('testsekjkfjd')
+          for (const actor of char[0].actors){
+
+            characterActors.push(
+              new FormGroup({
+                '_id': new FormControl(actor, Validators.required)
+              })
+            );
+          }
+        }
+
+            this.charForm = new FormGroup({
+              '_id': new FormControl(this.character._id, Validators.required),
+              'name': new FormControl(this.character.name, Validators.required),
+              'imagePath': new FormControl(this.character.imagePath, Validators.required),
+              'description': new FormControl(this.character.description, Validators.required),
+              'birthDate': new FormControl(this.character.birthDate, Validators.required),
+               'actors': characterActors
+              // 'actors': new FormControl('5a27b83e3a7827198c35c304', Validators.required)
+
+            });
+        });
+
+
+
 
 
     }
