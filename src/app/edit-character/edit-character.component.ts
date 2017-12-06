@@ -50,6 +50,7 @@ export class EditCharacterComponent implements OnInit {
         .then(series => {
           this.serieService.serieChanged.next(series.slice());
         });*/
+      this.router.navigate(['advanced/' + this.id]);
     }
   }
 
