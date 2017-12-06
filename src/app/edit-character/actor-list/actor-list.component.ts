@@ -34,7 +34,7 @@ export class ActorListComponent implements OnInit {
   }
 
   onActorClicked(actor: Actor) {
-    console.log('click list')
+
     this.actorClicked.emit(actor);
   }
 

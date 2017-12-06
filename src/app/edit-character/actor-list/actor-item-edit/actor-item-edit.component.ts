@@ -16,7 +16,6 @@ export class ActorItemEditComponent implements OnInit {
 
   ngOnInit() {
     // this.index = this.actor._id;
-    console.log('init item');
     console.log(this.actorEdit);
   }
 
