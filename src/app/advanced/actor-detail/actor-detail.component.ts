@@ -9,10 +9,15 @@ import {Character} from '../../series/character.model';
 export class ActorDetailComponent implements OnInit {
   @Input() character: Character;
   @Input() serieId: string;
-  constructor() { }
+  @Input() i : number;
+  constructor() {
+    console.log();
+  }
 
   ngOnInit() {
-    console.log(this.character.actors[0].name);
+    console.log(this.serieId);
+    console.log(this.i);
+
   }
 
 }

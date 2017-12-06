@@ -91,13 +91,24 @@ export class SerieService {
       });
   }
 
-  updateChar(index: string, newSerie: Serie) {
+  updateChar(serie: Serie, char: Character) {
+    console.log('update');
+    return this.http.put(this.serverUrl + serie._id, serie, {headers: this.headers})
+      .toPromise()
+      .then(response => {
+        console.log(response);
+        this.serieChanged.next(this.series);
+      });
+
+  }
+
+  /*updateChar(index: string, newSerie: Serie) {
     return this.http.put(this.serverUrl + index, newSerie,  {headers: this.headers})
       .toPromise()
       .then(response => {
         this.serieChanged.next(this.series);
       });
-  }
+  }*/
 
   getActors() {
 

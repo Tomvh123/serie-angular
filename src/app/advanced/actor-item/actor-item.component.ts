@@ -10,11 +10,13 @@ import {Character} from '../../series/character.model';
 export class ActorItemComponent implements OnInit {
 @Input() character: Character;
 @Input() serieId: string;
+@Input() index: number;
 @Output() characterSelected = new EventEmitter<void>();
 
   constructor() { }
 
   ngOnInit() {
+
   }
 
   onSelected() {

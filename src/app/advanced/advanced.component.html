@@ -68,9 +68,10 @@
 <div class="row">
   <div class="col-md-6">
     <app-actor-item
-      *ngFor="let characterEL of serie.characters"
+      *ngFor="let characterEL of serie.characters; let i = index"
       [character]="characterEL"
-      [serieId]="serieId"
+      [serieId]="serie._id"
+      [index]="i"
       (characterSelected)="onSerieSelected(characterEL)">
 
     </app-actor-item>
@@ -79,7 +80,8 @@
     <app-actor-detail
       *ngIf="character; else infoText"
       [character]="character"
-    [serieId]="ser"></app-actor-detail>
+    [serieId]="serie._id"
+    ></app-actor-detail>
     <ng-template #infoText>
       <p>Select an character</p>
     </ng-template>
