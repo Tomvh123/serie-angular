@@ -6,6 +6,7 @@
     <app-actor-item-edit
       *ngFor="let actorEl of actors; let i = index"
       [actorEdit]="actorEl"
-      [index]="i"></app-actor-item-edit>
+      [index]="i"
+    (actorClicked)="onActorClicked(actorEl)"></app-actor-item-edit>
   </div>
 </div>

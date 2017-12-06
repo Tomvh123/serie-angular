@@ -19,6 +19,7 @@ export class EditCharacterComponent implements OnInit {
   actors: [Actor];
   character: Character;
   charForm: FormGroup;
+  selectedActor: Actor;
 
   constructor(private route: ActivatedRoute,
               private serieService: SerieService,
@@ -52,15 +53,18 @@ export class EditCharacterComponent implements OnInit {
     }
   }
 
-  onAddActor() {
+  onAddActor(actor: Actor) {
+
     (<FormArray>this.charForm.get('actors')).push(
       new FormGroup({
-        '_id': new FormControl('5a27cfcf4223f601f0957851', Validators.required)
+        '_id': new FormControl(actor._id, Validators.required)
       })
     );
 
 
   }
+
+
 
   onDeleteActors(index: number) {
     (<FormArray>this.charForm.get('actors')).removeAt(index);

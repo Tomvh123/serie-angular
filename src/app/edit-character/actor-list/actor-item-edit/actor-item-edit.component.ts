@@ -1,4 +1,4 @@
-import {Component, Input, OnInit} from '@angular/core';
+import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
 import {Actor} from '../../../actor.model';
 
 @Component({
@@ -7,9 +7,9 @@ import {Actor} from '../../../actor.model';
   styleUrls: ['./actor-item-edit.component.css']
 })
 export class ActorItemEditComponent implements OnInit {
-
   @Input() actorEdit: Actor;
   @Input() index: string;
+  @Output() actorClicked = new EventEmitter<void>();
 
   constructor() {
   }
@@ -18,6 +18,11 @@ export class ActorItemEditComponent implements OnInit {
     // this.index = this.actor._id;
     console.log('init item');
     console.log(this.actorEdit);
+  }
+
+  onClicked () {
+    console.log('click item')
+    this.actorClicked.emit();
   }
 
 }

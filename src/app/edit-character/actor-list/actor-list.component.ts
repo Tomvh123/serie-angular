@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, EventEmitter, OnInit, Output} from '@angular/core';
 import {Actor} from '../../actor.model';
 import {SerieService} from '../../series/serie.service';
 import {Subscription} from 'rxjs/Subscription';
@@ -11,6 +11,7 @@ import {Subscription} from 'rxjs/Subscription';
 export class ActorListComponent implements OnInit {
   actors: Actor[];
   subscription: Subscription;
+  @Output() actorClicked = new EventEmitter<Actor>();
 
   constructor(private serieService: SerieService) { }
 
@@ -30,6 +31,11 @@ export class ActorListComponent implements OnInit {
     });
 
 
+  }
+
+  onActorClicked(actor: Actor) {
+    console.log('click list')
+    this.actorClicked.emit(actor);
   }
 
   ngOnDestroy() {

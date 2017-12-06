@@ -37,7 +37,6 @@ export class AdvancedComponent implements OnInit {
   }
 
   onSerieSelected(character: Character) {
-    console.log('click2');
     this.character = character;
     console.log(character);
 
