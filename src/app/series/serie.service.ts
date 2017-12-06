@@ -38,6 +38,20 @@ export class SerieService {
 
   }
 
+  addChar(id: string, char: Character, serie: Serie) {
+    // serie.characters.push(char);
+
+    this.http.post(environment.serverUrlChar, char, {headers: this.headers})
+      .toPromise()
+      .then(response => {
+
+        return response.json() as Character;
+      })
+      .catch(error => {
+        return error
+      });
+  }
+
   getSerie(index: string) {
     if (index == null)
       return null;
@@ -63,21 +77,23 @@ export class SerieService {
   }
 
 
-  /*updateSerie(index: string, newSerie: Serie) {
+  updateSerie(index: string, newSerie: Serie) {
     return this.http.put(this.serverUrl + index, newSerie, {headers: this.headers})
+      .toPromise()
+      .then(response => {
+        this.serieChanged.next(this.series);
+      });
+  }
+
+  /*updateSerie(index: string, serie: Serie) {
+    return this.http.put('http://localhost:3000/api/v1/characters/' + index, serie, {headers: this.headers})
       .toPromise()
       .then(response => {
         this.serieChanged.next(this.series);
       });
   }*/
 
-  updateSerie(index: string, char: Character) {
-    return this.http.put('http://localhost:3000/api/v1/characters/' + index, char, {headers: this.headers})
-      .toPromise()
-      .then(response => {
-        this.serieChanged.next(this.series);
-      });
-  }
+
 
   deleteSerie(index: string) {
     return this.http.delete(this.serverUrl + index, {headers: this.headers})
@@ -117,17 +133,7 @@ export class SerieService {
       });
   }
 
-  addChar(serie: Serie, char: Character) {
-    // serie.characters.push(char);
-    serie.characters.push(char);
-    console.log(serie);
-    return this.http.put(this.serverUrl + serie._id, serie, {headers: this.headers})
-      .toPromise()
-      .then(response => {
-        console.log(response);
-        this.serieChanged.next(this.series);
-      });
-  }
+
 
   updateChar(id: string, char: Character) {
     console.log('update');

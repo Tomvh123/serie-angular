@@ -52,7 +52,8 @@ export class EditCharacterComponent implements OnInit {
       this.router.navigate(['advanced/' + this.id]);
       this.serieService.updateChar(this.idChar, this.charForm.value);
     } else {
-      this.serieService.addChar(this.serie, this.charForm.value);
+
+
       this.router.navigate(['advanced/' + this.id]);
     }
   }
@@ -85,10 +86,10 @@ export class EditCharacterComponent implements OnInit {
       this.serieService.getChar(this.idChar).then((res) => console.log(res))
       this.serieService.getChar(this.idChar)
         .then(char => {
-          this.character = char[0];
-        if (char[0]['actors']) {
+          this.character = char;
+        if (char['actors']) {
           console.log('testsekjkfjd')
-          for (const actor of char[0].actors){
+          for (const actor of char.actors){
 
             characterActors.push(
               new FormGroup({
