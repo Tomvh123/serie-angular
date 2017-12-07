@@ -37,14 +37,18 @@
     <ul>
       Actors:
       <ul>
-        <li class="list-group-item" *ngFor="let actorEl of serie.characters">{{actorEl.actors[0].name}}</li>
+      <ng-container *ngFor="let actorEl of serie.characters;">
+
+          <li *ngIf="actorEl.actors[0]" class="list-group-item"  >{{actorEl.actors[0].name}}</li>
+
+      </ng-container>
       </ul>
 
     </ul>
     <ul>
       Creators:
       <ul>
-        <li class="list-group-item" *ngFor="let creatorEL of serie.creators">{{creatorEL.name}}</li>
+        <li  class="list-group-item" *ngFor="let creatorEL of serie.creators">{{creatorEL.name}}</li>
       </ul>
 
     </ul>
