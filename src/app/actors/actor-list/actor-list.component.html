@@ -1,0 +1,14 @@
+<div class="row">
+  <div class="col-xs-12">
+    <button class="btn btn-success" (click)="">New Actor</button>
+  </div>
+</div>
+<hr>
+<div class="row">
+  <div class="col-xs-12">
+    <app-actor-item
+      *ngFor="let actorEl of actors; let i = index"
+      [recipe]="recipeEl"
+      [index]="i"></app-actor-item>
+  </div>
+</div>
