@@ -39,16 +39,16 @@ export class SerieService {
   }
 
   addChar(id: string, char: Character, serie: Serie) {
-    // serie.characters.push(char);
+    console.log('addChar')
 
-    this.http.post(environment.serverUrlChar, char, {headers: this.headers})
+    return this.http.post(environment.serverUrlChar, char, {headers: this.headers})
       .toPromise()
       .then(response => {
 
         return response.json() as Character;
       })
       .catch(error => {
-        return error
+        return error;
       });
   }
 
@@ -67,7 +67,7 @@ export class SerieService {
   }
 
   addSerie(serie: Serie) {
-    console.log(this.serverUrl);
+    console.log(serie);
     return this.http.post(this.serverUrl, serie, {headers: this.headers})
       .toPromise()
       .then(response => {

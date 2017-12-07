@@ -5,6 +5,7 @@ import {SerieService} from '../series/serie.service';
 import {Serie} from '../series/serie.model';
 import {Actor} from '../actor.model';
 import {Character} from '../series/character.model';
+import {forEach} from '@angular/router/src/utils/collection';
 
 @Component({
   selector: 'app-edit-character',
@@ -16,8 +17,10 @@ export class EditCharacterComponent implements OnInit {
   idChar: string;
   edit = false;
   serie: Serie;
+  serie2: Serie;
   actors: [Actor];
   character: Character;
+  characterRes: Character;
   charForm: FormGroup;
   selectedActor: Actor;
 
@@ -52,6 +55,11 @@ export class EditCharacterComponent implements OnInit {
       this.router.navigate(['advanced/' + this.id]);
       this.serieService.updateChar(this.idChar, this.charForm.value);
     } else {
+      this.serieService.addChar(this.idChar, this.charForm.value, this.serie)
+        .then(res =>
+          this.serie.characters.push({'_id': res._id})
+        )
+        .then(() => this.serieService.updateSerie(this.id, this.serie))
 
 
       this.router.navigate(['advanced/' + this.id]);
@@ -88,7 +96,6 @@ export class EditCharacterComponent implements OnInit {
         .then(char => {
           this.character = char;
         if (char['actors']) {
-          console.log('testsekjkfjd')
           for (const actor of char.actors){
 
             characterActors.push(
