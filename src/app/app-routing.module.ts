@@ -4,7 +4,7 @@ import {SeriesComponent} from './series/series.component';
 import {SerieStartComponent} from './series/serie-list/serie-start/serie-start.component';
 import {SerieDetailComponent} from './series/serie-detail/serie-detail.component';
 import {AdvancedComponent} from './advanced/advanced.component';
-import {ActorDetailComponent} from './advanced/actor-detail/actor-detail.component';
+import {CharacterDetailComponent} from './advanced/character-detail/character-detail.component';
 import {PageNotFountComponent} from './page-not-fount/page-not-fount.component';
 import {EditSerieComponent} from './edit-serie/edit-serie.component';
 import {EditCharacterComponent} from './edit-character/edit-character.component';

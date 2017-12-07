@@ -14,8 +14,8 @@ import {HttpModule} from '@angular/http';
 import { SerieStartComponent } from './series/serie-list/serie-start/serie-start.component';
 import { SerieDetailComponent } from './series/serie-detail/serie-detail.component';
 import { AdvancedComponent } from './advanced/advanced.component';
-import { ActorItemComponent } from './advanced/actor-item/actor-item.component';
-import { ActorDetailComponent } from './advanced/actor-detail/actor-detail.component';
+import { CharacterItemComponent } from './advanced/character-item/character-item.component';
+import { CharacterDetailComponent } from './advanced/character-detail/character-detail.component';
 import { PageNotFountComponent } from './page-not-fount/page-not-fount.component';
 
 import { EditSerieComponent } from './edit-serie/edit-serie.component';
@@ -35,8 +35,8 @@ import { ActorItemEditComponent } from './edit-character/actor-list/actor-item-e
     SerieStartComponent,
     SerieDetailComponent,
     AdvancedComponent,
-    ActorItemComponent,
-    ActorDetailComponent,
+    CharacterItemComponent,
+    CharacterDetailComponent,
     PageNotFountComponent,
     EditSerieComponent,
     EditCharacterComponent,

@@ -67,21 +67,21 @@
 </div>
 <div class="row">
   <div class="col-md-6">
-    <app-actor-item
+    <app-character-item
       *ngFor="let characterEL of serie.characters; let i = index"
       [character]="characterEL"
       [serieId]="serie._id"
       [index]="i"
       (characterSelected)="onSerieSelected(characterEL)">
 
-    </app-actor-item>
+    </app-character-item>
   </div>
   <div class="col-md-6">
-    <app-actor-detail
+    <app-character-detail
       *ngIf="character; else infoText"
       [character]="character"
     [serieId]="serie._id"
-    ></app-actor-detail>
+    ></app-character-detail>
     <ng-template #infoText>
       <p>Select an character</p>
     </ng-template>

@@ -3,11 +3,11 @@ import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
 import {Character} from '../../series/character.model';
 
 @Component({
-  selector: 'app-actor-item',
-  templateUrl: './actor-item.component.html',
-  styleUrls: ['./actor-item.component.css']
+  selector: 'app-character-item',
+  templateUrl: './character-item.component.html',
+  styleUrls: ['./character-item.component.css']
 })
-export class ActorItemComponent implements OnInit {
+export class CharacterItemComponent implements OnInit {
 @Input() character: Character;
 @Input() serieId: string;
 @Input() index: number;
