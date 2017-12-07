@@ -11,6 +11,7 @@ import {EditCharacterComponent} from './edit-character/edit-character.component'
 import {ActorsComponent} from './actors/actors.component';
 import {ActorStartComponent} from './actors/actor-start/actor-start.component';
 import {ActorDetailComponent} from './actors/actor-detail/actor-detail.component';
+import {ActorEditComponent} from './actors/actor-edit/actor-edit.component';
 
 
 const appRoutes: Routes = [
@@ -29,7 +30,8 @@ const appRoutes: Routes = [
   {path: 'editChar/:id/:charid', component: EditCharacterComponent},
   {path: 'actors', component: ActorsComponent, children: [
     {path: '', component: ActorStartComponent},
-    {path: ':id', component: ActorDetailComponent}
+    {path: ':id', component: ActorDetailComponent},
+    {path: ':id/edit', component: ActorEditComponent}
   ]},
   {path: '**', component: PageNotFountComponent}
 ];

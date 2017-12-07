@@ -4,11 +4,11 @@ import {SerieService} from '../../series/serie.service';
 import {Subscription} from 'rxjs/Subscription';
 
 @Component({
-  selector: 'app-actor-list',
+  selector: 'app-actor-edit-list',
   templateUrl: './actor-list.component.html',
   styleUrls: ['./actor-list.component.css']
 })
-export class ActorListComponent implements OnInit {
+export class ActorListEditComponent implements OnInit {
   actors: Actor[];
   subscription: Subscription;
   @Output() actorClicked = new EventEmitter<Actor>();

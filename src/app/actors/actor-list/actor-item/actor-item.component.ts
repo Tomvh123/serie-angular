@@ -12,10 +12,12 @@ export class ActorItemComponent implements OnInit {
   @Input() index: string
 
   constructor() {
+
   }
 
   ngOnInit() {
     this.index = this.actor._id;
+
   }
 
 }

@@ -21,13 +21,15 @@ import { PageNotFountComponent } from './page-not-fount/page-not-fount.component
 import { EditSerieComponent } from './edit-serie/edit-serie.component';
 import {ReactiveFormsModule} from '@angular/forms';
 import { EditCharacterComponent } from './edit-character/edit-character.component';
-import { ActorListComponent } from './edit-character/actor-list/actor-list.component';
+import { ActorListEditComponent } from './edit-character/actor-list/actor-list.component';
 import { ActorItemEditComponent } from './edit-character/actor-list/actor-item-edit/actor-item-edit.component';
 import { ActorsComponent } from './actors/actors.component';
 import { ActorDetailComponent } from './actors/actor-detail/actor-detail.component';
 import { ActorEditComponent } from './actors/actor-edit/actor-edit.component';
 import { ActorStartComponent } from './actors/actor-start/actor-start.component';
 import { ActorItemComponent } from './actors/actor-list/actor-item/actor-item.component';
+import {ActorListComponent} from './actors/actor-list/actor-list.component';
+import {ActorService} from './actors/actor-service.service';
 
 
 @NgModule({
@@ -45,6 +47,7 @@ import { ActorItemComponent } from './actors/actor-list/actor-item/actor-item.co
     PageNotFountComponent,
     EditSerieComponent,
     EditCharacterComponent,
+    ActorListEditComponent,
     ActorListComponent,
     ActorItemEditComponent,
     ActorsComponent,
@@ -59,7 +62,7 @@ import { ActorItemComponent } from './actors/actor-list/actor-item/actor-item.co
     HttpModule,
     ReactiveFormsModule
   ],
-  providers: [SerieService],
+  providers: [SerieService, ActorService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

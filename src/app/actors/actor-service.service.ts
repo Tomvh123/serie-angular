@@ -19,7 +19,6 @@ export class ActorService {
 
 
   getActors() {
-
     return this.http.get(this.serverUrl, {headers: this.headers})
       .toPromise()
       .then(response => {
@@ -28,6 +27,46 @@ export class ActorService {
       })
       .catch(error => {
         return error;
+      });
+  }
+
+  getActor(index: string) {
+    if (index == null)
+      return null;
+
+    return this.http.get(this.serverUrl + index, {headers: this.headers})
+      .toPromise()
+      .then(response => {
+        return response.json();
+      })
+      .catch(error => {
+
+        return error;
+      });
+  }
+
+  addActor(actor: Actor) {
+    return this.http.post(this.serverUrl, actor, {headers: this.headers})
+      .toPromise()
+      .then(response => {
+        this.actorChanged.next(this.actors.slice());
+      });
+  }
+
+  updateRecipe(index: string, newActor: Actor) {
+    return this.http.put(this.serverUrl + index, newActor, {headers: this.headers})
+      .toPromise()
+      .then(response => {
+        this.actorChanged.next(this.actors.slice());
+      });
+  }
+
+
+  deleteActor(index: string) {
+    return this.http.delete(this.serverUrl + index, {headers: this.headers})
+      .toPromise()
+      .then(response => {
+        this.actorChanged.next(this.actors.slice());
       });
   }
 
