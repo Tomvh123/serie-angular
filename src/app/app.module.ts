@@ -23,6 +23,11 @@ import {ReactiveFormsModule} from '@angular/forms';
 import { EditCharacterComponent } from './edit-character/edit-character.component';
 import { ActorListComponent } from './edit-character/actor-list/actor-list.component';
 import { ActorItemEditComponent } from './edit-character/actor-list/actor-item-edit/actor-item-edit.component';
+import { ActorsComponent } from './actors/actors.component';
+import { ActorDetailComponent } from './actors/actor-detail/actor-detail.component';
+import { ActorEditComponent } from './actors/actor-edit/actor-edit.component';
+import { ActorStartComponent } from './actors/actor-start/actor-start.component';
+import { ActorItemComponent } from './actors/actor-list/actor-item/actor-item.component';
 
 
 @NgModule({
@@ -42,6 +47,11 @@ import { ActorItemEditComponent } from './edit-character/actor-list/actor-item-e
     EditCharacterComponent,
     ActorListComponent,
     ActorItemEditComponent,
+    ActorsComponent,
+    ActorDetailComponent,
+    ActorEditComponent,
+    ActorStartComponent,
+    ActorItemComponent,
   ],
   imports: [
     BrowserModule,

@@ -8,6 +8,9 @@ import {CharacterDetailComponent} from './advanced/character-detail/character-de
 import {PageNotFountComponent} from './page-not-fount/page-not-fount.component';
 import {EditSerieComponent} from './edit-serie/edit-serie.component';
 import {EditCharacterComponent} from './edit-character/edit-character.component';
+import {ActorsComponent} from './actors/actors.component';
+import {ActorStartComponent} from './actors/actor-start/actor-start.component';
+import {ActorDetailComponent} from './actors/actor-detail/actor-detail.component';
 
 
 const appRoutes: Routes = [
@@ -20,11 +23,14 @@ const appRoutes: Routes = [
   {
     path: 'advanced/:id', component: AdvancedComponent
   },
-
   {path: 'edit', component: EditSerieComponent},
   {path: 'edit/:id', component: EditSerieComponent},
   {path: 'editChar/:id', component: EditCharacterComponent},
   {path: 'editChar/:id/:charid', component: EditCharacterComponent},
+  {path: 'actors', component: ActorsComponent, children: [
+    {path: '', component: ActorStartComponent},
+    {path: ':id', component: ActorDetailComponent}
+  ]},
   {path: '**', component: PageNotFountComponent}
 ];
 
