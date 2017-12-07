@@ -29,7 +29,9 @@ const appRoutes: Routes = [
   {path: 'editChar/:id', component: EditCharacterComponent},
   {path: 'editChar/:id/:charid', component: EditCharacterComponent},
   {path: 'actors', component: ActorsComponent, children: [
+
     {path: '', component: ActorStartComponent},
+    {path: 'new', component: ActorEditComponent },
     {path: ':id', component: ActorDetailComponent},
     {path: ':id/edit', component: ActorEditComponent}
   ]},

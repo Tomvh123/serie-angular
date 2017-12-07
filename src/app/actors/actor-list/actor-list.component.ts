@@ -32,7 +32,7 @@ export class ActorListComponent implements OnInit, OnDestroy {
     });
   }
 
-  onNewRecipe() {
+  onNewActor() {
     this.router.navigate(['new'], {relativeTo: this.route});
   }
 
