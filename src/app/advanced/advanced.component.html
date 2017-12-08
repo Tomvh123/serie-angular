@@ -71,15 +71,18 @@
 </div>
 <div class="row">
   <div class="col-md-6">
-    <app-character-item
-      *ngFor="let characterEL of serie.characters; let i = index"
-      [character]="characterEL"
-      [serieId]="serie._id"
-      [index]="i"
-      (characterSelected)="onSerieSelected(characterEL)"
-    (characterDelete)="onCharDelete(i)">
+    <div class="pre-scrollable">
+      <app-character-item
+        *ngFor="let characterEL of serie.characters; let i = index"
+        [character]="characterEL"
+        [serieId]="serie._id"
+        [index]="i"
+        (characterSelected)="onSerieSelected(characterEL)"
+        (characterDelete)="onCharDelete(i)">
 
-    </app-character-item>
+      </app-character-item>
+    </div>
+
   </div>
   <div class="col-md-6">
     <app-character-detail

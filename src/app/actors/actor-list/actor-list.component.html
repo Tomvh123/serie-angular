@@ -6,9 +6,11 @@
 <hr>
 <div class="row">
   <div class="col-xs-12">
+    <div class="pre-scrollable">
     <app-actor-item
       *ngFor="let actorEl of actors; let i = index"
       [actor]="actorEl"
       [index]="i"></app-actor-item>
+    </div>
   </div>
 </div>

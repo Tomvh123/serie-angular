@@ -1,3 +1,7 @@
 ul{ padding: 0px;}
 li{display: inline-block; }
 
+.pre-scrollable {
+  max-width: 1500px;
+  overflow-x: hidden;
+}
