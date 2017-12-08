@@ -11,12 +11,10 @@ export class CharacterDetailComponent implements OnInit {
   @Input() serieId: string;
   @Input() i : number;
   constructor() {
-    console.log();
   }
 
   ngOnInit() {
-    console.log(this.serieId);
-    console.log(this.i);
+
 
   }
 

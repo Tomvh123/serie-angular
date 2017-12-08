@@ -13,6 +13,7 @@ import {Character} from '../series/character.model';
 export class AdvancedComponent implements OnInit {
   serie: Serie = new Serie({name: 'loading', imagePath: ''});
   character: Character;
+  index: number;
 
 
   id: string;
@@ -45,6 +46,13 @@ export class AdvancedComponent implements OnInit {
   onSerieDelete() {
     this.serieService.deleteSerie(this.id);
     this.router.navigate(['/series']);
+  }
+
+  onCharDelete(i : number) {
+    this.serie.characters.splice(i, i + 1);
+    this.serieService.updateSerie(this.id, this.serie);
+
+
   }
 
 

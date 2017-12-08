@@ -76,7 +76,8 @@
       [character]="characterEL"
       [serieId]="serie._id"
       [index]="i"
-      (characterSelected)="onSerieSelected(characterEL)">
+      (characterSelected)="onSerieSelected(characterEL)"
+    (characterDelete)="onCharDelete(i)">
 
     </app-character-item>
   </div>

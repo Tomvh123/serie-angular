@@ -1,6 +1,7 @@
 import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
 
 import {Character} from '../../series/character.model';
+import {isNumber} from 'util';
 
 @Component({
   selector: 'app-character-item',
@@ -12,8 +13,9 @@ export class CharacterItemComponent implements OnInit {
 @Input() serieId: string;
 @Input() index: number;
 @Output() characterSelected = new EventEmitter<void>();
+@Output() characterDelete = new EventEmitter<void>();
 
-  constructor() { }
+  constructor() {}
 
   ngOnInit() {
 
@@ -22,5 +24,10 @@ export class CharacterItemComponent implements OnInit {
   onSelected() {
     this.characterSelected.emit();
   }
+
+  onCharClicked() {
+    this.characterDelete.emit();
+  }
+
 
 }
