@@ -56,6 +56,7 @@ export class EditCharacterComponent implements OnInit {
           this.serie.characters.push({'_id': res._id})
         )
         .then(() => this.serieService.updateSerie(this.id, this.serie));
+      this.router.navigate(['advanced/' + this.id]);
     }
   }
 

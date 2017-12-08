@@ -71,7 +71,7 @@ export class SerieService {
     return this.http.post(this.serverUrl, serie, {headers: this.headers})
       .toPromise()
       .then(response => {
-        this.serieChanged.next(this.series.slice());
+        this.serieChanged.next(this.series);
       });
   }
 
@@ -80,7 +80,7 @@ export class SerieService {
     return this.http.put(this.serverUrl + index, newSerie, {headers: this.headers})
       .toPromise()
       .then(response => {
-        this.serieChanged.next(this.series.slice());
+        this.serieChanged.next(this.series);
       });
   }
 
