@@ -7,7 +7,7 @@ import {startWith} from 'rxjs/operators';
 export class FilterPipe implements PipeTransform {
 
   transform(value: any, filterString: string, propName: string): any {
-    if (value.length === 0 || filterString === '') {
+    if ( filterString === '') {
       return value;
     }
     const resultArray = [];

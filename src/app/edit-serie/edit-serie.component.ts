@@ -41,6 +41,8 @@ export class EditSerieComponent implements OnInit {
         .then(series => {
           this.serieService.serieChanged.next(series.slice());
         });
+      this.router.navigate(['series/']);
+
     }
   }
 
