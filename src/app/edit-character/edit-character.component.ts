@@ -47,10 +47,6 @@ export class EditCharacterComponent implements OnInit {
 
   onSubmit() {
     if (this.edit) {
-      /*this.serie.characters.splice(this.idChar, this.idChar + 1);
-      this.serie.characters.push(this.charForm.value);
-      this.serieService.updateChar(this.serie, this.charForm.value);
-      this.router.navigate(['advanced/' + this.id]);*/
       console.log(this.charForm.value);
       this.router.navigate(['advanced/' + this.id]);
       this.serieService.updateChar(this.idChar, this.charForm.value);
@@ -59,15 +55,11 @@ export class EditCharacterComponent implements OnInit {
         .then(res =>
           this.serie.characters.push({'_id': res._id})
         )
-        .then(() => this.serieService.updateSerie(this.id, this.serie))
-
-
-      this.router.navigate(['advanced/' + this.id]);
+        .then(() => this.serieService.updateSerie(this.id, this.serie));
     }
   }
 
   onAddActor(actor: Actor) {
-
     (<FormArray>this.charForm.get('actors')).push(
       new FormGroup({
         '_id': new FormControl(actor._id, Validators.required)
@@ -95,31 +87,28 @@ export class EditCharacterComponent implements OnInit {
       this.serieService.getChar(this.idChar)
         .then(char => {
           this.character = char;
-        if (char['actors']) {
-          for (const actor of char.actors){
+          if (char['actors']) {
+            for (const actor of char.actors) {
 
-            characterActors.push(
-              new FormGroup({
-                '_id': new FormControl(actor, Validators.required)
-              })
-            );
+              characterActors.push(
+                new FormGroup({
+                  '_id': new FormControl(actor, Validators.required)
+                })
+              );
+            }
           }
-        }
 
-            this.charForm = new FormGroup({
-              '_id': new FormControl(this.character._id, Validators.required),
-              'name': new FormControl(this.character.name, Validators.required),
-              'imagePath': new FormControl(this.character.imagePath, Validators.required),
-              'description': new FormControl(this.character.description, Validators.required),
-              'birthDate': new FormControl(this.character.birthDate, Validators.required),
-               'actors': characterActors
-              // 'actors': new FormControl('5a27b83e3a7827198c35c304', Validators.required)
+          this.charForm = new FormGroup({
+            '_id': new FormControl(this.character._id, Validators.required),
+            'name': new FormControl(this.character.name, Validators.required),
+            'imagePath': new FormControl(this.character.imagePath, Validators.required),
+            'description': new FormControl(this.character.description, Validators.required),
+            'birthDate': new FormControl(this.character.birthDate, Validators.required),
+            'actors': characterActors
+            // 'actors': new FormControl('5a27b83e3a7827198c35c304', Validators.required)
 
-            });
+          });
         });
-
-
-
 
 
     }

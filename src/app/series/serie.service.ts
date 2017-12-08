@@ -71,7 +71,6 @@ export class SerieService {
     return this.http.post(this.serverUrl, serie, {headers: this.headers})
       .toPromise()
       .then(response => {
-
         this.serieChanged.next(this.series.slice());
       });
   }
@@ -81,19 +80,9 @@ export class SerieService {
     return this.http.put(this.serverUrl + index, newSerie, {headers: this.headers})
       .toPromise()
       .then(response => {
-        this.serieChanged.next(this.series);
+        this.serieChanged.next(this.series.slice());
       });
   }
-
-  /*updateSerie(index: string, serie: Serie) {
-    return this.http.put('http://localhost:3000/api/v1/characters/' + index, serie, {headers: this.headers})
-      .toPromise()
-      .then(response => {
-        this.serieChanged.next(this.series);
-      });
-  }*/
-
-
 
   deleteSerie(index: string) {
     return this.http.delete(this.serverUrl + index, {headers: this.headers})
@@ -132,7 +121,6 @@ export class SerieService {
         return error;
       });
   }
-
 
 
   updateChar(id: string, char: Character) {
