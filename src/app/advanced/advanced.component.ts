@@ -3,7 +3,7 @@ import {ActivatedRoute, Params, Router} from '@angular/router';
 import {SerieService} from '../series/serie.service';
 import {Serie} from '../series/serie.model';
 import {Character} from '../series/character.model';
-import {Creator} from '../creator.model';
+
 
 @Component({
   selector: 'app-advanced',
@@ -13,13 +13,16 @@ import {Creator} from '../creator.model';
 export class AdvancedComponent implements OnInit {
   serie: Serie = new Serie({name: 'loading', imagePath: ''});
   character: Character;
-  // creator: Creator;
+  index: number;
+
 
   id: string;
 
   constructor(private serieService: SerieService,
               private route: ActivatedRoute,
               private router: Router) {
+    console.log('advanced');
+
   }
 
   ngOnInit() {
@@ -29,16 +32,26 @@ export class AdvancedComponent implements OnInit {
           this.id = params['id'];
           this.serieService.getSerie(this.id).then(res => {
             this.serie = res;
-            console.log(res);
+            console.log(this.serie);
           });
         }
       );
   }
 
   onSerieSelected(character: Character) {
-    console.log('click2');
     this.character = character;
     console.log(character);
+
+  }
+  onSerieDelete() {
+    this.serieService.deleteSerie(this.id);
+    this.router.navigate(['/series']);
+  }
+
+  onCharDelete(i : number) {
+    this.serie.characters.splice(i, i + 1);
+    this.serieService.updateSerie(this.id, this.serie);
+
 
   }
 

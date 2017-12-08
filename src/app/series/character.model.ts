@@ -4,8 +4,12 @@ export class Character {
   private _name: string;
   private _description: string;
   private _imagepath: string;
-  private _actors: Actor;
+  private _actors: [object];
   private _birthDate: Date;
+
+  constructor(values: object = {}) {
+    Object.assign(this, values);
+  }
 
   public get _id() {
     return this.id;
@@ -19,7 +23,7 @@ export class Character {
     return this._actors;
   }
 
-  public set actors(n: Actor) {
+  public set actors(n: [object]) {
     this._actors = n;
   }
 

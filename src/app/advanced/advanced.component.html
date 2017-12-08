@@ -15,69 +15,78 @@
       </div>
     </div>
 
-    <div class="row" >
+    <div class="row">
       <div class="col-xs-12">
         <hr>
         <p>{{serie.description}}</p>
       </div>
     </div>
 
-    <div class="row" >
+    <div class="row">
       <div class="col-xs-12">
 
       </div>
     </div>
   </div>
-<div class="col-md-6">
-  <h1>More info</h1>
-  <p>Started: {{serie.start}}</p>
-  <p>Seasons: {{serie.seasons}}</p>
-  <p>Episodes: {{serie.episodes}}</p>
-  <p>Language: {{serie.language}}</p>
-  <ul>
-  Actors:
+  <div class="col-md-6">
+    <h1>More info</h1>
+    <p>Started: {{serie.start}}</p>
+    <p>Seasons: {{serie.seasons}}</p>
+    <p>Episodes: {{serie.episodes}}</p>
+    <p>Language: {{serie.language}}</p>
+    <ul>
+      Actors:
       <ul>
-        <li class= "list-group-item"*ngFor="let actorEl of serie.characters">{{actorEl.actors[0].name}} </li>
+      <ng-container *ngFor="let actorEl of serie.characters;">
+
+          <li *ngIf="actorEl.actors[0]" class="list-group-item"  >{{actorEl.actors[0].name}}</li>
+
+      </ng-container>
       </ul>
 
-  </ul>
-  <ul>
-    Creators:
-    <ul>
-      <li class= "list-group-item"*ngFor="let creatorEL of serie.creators">{{creatorEL.name}} </li>
     </ul>
+    <ul>
+      Creators:
+      <ul>
+        <li  class="list-group-item" *ngFor="let creatorEL of serie.creators">{{creatorEL.name}}</li>
+      </ul>
 
-  </ul>
-
-
-
+    </ul>
+    <div class="row">
+      <div class="col-md-6">
+        <button routerLink="/edit/{{serie._id}}" class="btn btn-primary pull-right">edit</button>
+      </div>
+      <div class="col-md-6">
+        <button class="btn btn-danger" (click)="onSerieDelete()">Delete</button>
+      </div>
+    </div>
+  </div>
 </div>
-</div>
-
-
-
-
 <hr>
-
+<button routerLink="/editChar/{{serie._id}}" class="btn btn-primary">Add</button>
 <div class="row">
   <div class="col-xs-12">
     <h1>characters</h1>
-
   </div>
 </div>
 <div class="row">
   <div class="col-md-6">
-    <app-actor-item
-      *ngFor="let characterEL of serie.characters"
+    <app-character-item
+      *ngFor="let characterEL of serie.characters; let i = index"
       [character]="characterEL"
-      (characterSelected)="onSerieSelected(characterEL)">
+      [serieId]="serie._id"
+      [index]="i"
+      (characterSelected)="onSerieSelected(characterEL)"
+    (characterDelete)="onCharDelete(i)">
 
-    </app-actor-item>
+    </app-character-item>
   </div>
   <div class="col-md-6">
-    <app-actor-detail
-    *ngIf="character; else infoText"
-    [character]="character"></app-actor-detail>
+    <app-character-detail
+      *ngIf="character; else infoText"
+      [character]="character"
+    [serieId]="serie._id"
+    ></app-character-detail>
     <ng-template #infoText>
       <p>Select an character</p>
     </ng-template>
