@@ -12,6 +12,7 @@ import {ActivatedRoute, Router} from '@angular/router';
 export class SerieListComponent implements OnInit, OnDestroy {
   series: Serie[];
   subscription: Subscription;
+  filteredStatus = '';
 
   constructor(private serieService: SerieService,
               private router: Router,
