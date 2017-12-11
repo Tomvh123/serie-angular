@@ -1,13 +1,12 @@
 <h1>Series:</h1>
 <button routerLink="/edit" class="btn btn-success">Add new Series</button>
-
-
+<input type="text" [(ngModel)]="filteredStatus">
 <hr>
 <div class="row">
   <div class="col-xs-12" >
     <div class="pre-scrollable">
       <app-serie-item
-        *ngFor="let serieEl of series; let i = index"
+        *ngFor="let serieEl of series | filter: filteredStatus: 'name' let i = index"
         [serie]="serieEl"
         [index]="i"></app-serie-item>
 

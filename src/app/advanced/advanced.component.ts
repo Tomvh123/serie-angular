@@ -14,6 +14,7 @@ export class AdvancedComponent implements OnInit {
   serie: Serie = new Serie({name: 'loading', imagePath: ''});
   character: Character;
   index: number;
+  relSerie: Serie[];
 
 
   id: string;
@@ -32,15 +33,18 @@ export class AdvancedComponent implements OnInit {
           this.id = params['id'];
           this.serieService.getSerie(this.id).then(res => {
             this.serie = res;
-            console.log(this.serie);
-          });
+            console.log(this.serie)
+          }).then(() => this.serieService.getSeriesRel(this.serie.genre)
+            .then((res) => this.relSerie = res) );
         }
       );
+
+
+
   }
 
   onSerieSelected(character: Character) {
     this.character = character;
-    console.log(character);
 
   }
   onSerieDelete() {

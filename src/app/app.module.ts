@@ -19,7 +19,7 @@ import { CharacterDetailComponent } from './advanced/character-detail/character-
 import { PageNotFountComponent } from './page-not-fount/page-not-fount.component';
 
 import { EditSerieComponent } from './edit-serie/edit-serie.component';
-import {ReactiveFormsModule} from '@angular/forms';
+import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import { EditCharacterComponent } from './edit-character/edit-character.component';
 import { ActorListEditComponent } from './edit-character/actor-list/actor-list.component';
 import { ActorItemEditComponent } from './edit-character/actor-list/actor-item-edit/actor-item-edit.component';
@@ -30,6 +30,8 @@ import { ActorStartComponent } from './actors/actor-start/actor-start.component'
 import { ActorItemComponent } from './actors/actor-list/actor-item/actor-item.component';
 import {ActorListComponent} from './actors/actor-list/actor-list.component';
 import {ActorService} from './actors/actor-service.service';
+import { FilterPipe } from './filter.pipe';
+import { RelSerieItemComponent } from './advanced/rel-serie-item/rel-serie-item.component';
 
 
 @NgModule({
@@ -55,12 +57,16 @@ import {ActorService} from './actors/actor-service.service';
     ActorEditComponent,
     ActorStartComponent,
     ActorItemComponent,
+    FilterPipe,
+    RelSerieItemComponent,
+
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     HttpModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    FormsModule
   ],
   providers: [SerieService, ActorService],
   bootstrap: [AppComponent]

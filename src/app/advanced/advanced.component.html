@@ -30,7 +30,7 @@
   </div>
   <div class="col-md-6">
     <h1>More info</h1>
-    <p>Started: {{serie.start}}</p>
+    <p>Started: {{serie.start | date}}</p>
     <p>Seasons: {{serie.seasons}}</p>
     <p>Episodes: {{serie.episodes}}</p>
     <p>Language: {{serie.language}}</p>
@@ -96,5 +96,19 @@
   </div>
 
 </div>
+<hr>
+<h1>Related Series: </h1>
+<div class="row">
+  <div class="col-md-12">
+    <ul id="ul">
+      <ng-container *ngFor="let serieEl of relSerie">
+        <li *ngIf="serieEl._id != serie._id"  id="li"><app-rel-serie-item
+          [serieRel]="serieEl">
+        </app-rel-serie-item></li>
+      </ng-container>
+    </ul>
+
+    </div>
+  </div>
 
 
