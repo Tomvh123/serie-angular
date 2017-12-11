@@ -3,13 +3,13 @@ export class Serie {
   private _name: string;
   private _description: string;
   private _imagepath: string;
-  private _creators: [object];
-  private _characters: [object];
+  private _creators: [Object];
+  private _characters: [Object];
   private _start: Date;
   private _seasons: Number;
   private _episodes: Number;
   private _language: string;
-  private _genre: [string];
+  private _genre: string;
 
 
   public get start() {
@@ -50,12 +50,12 @@ export class Serie {
     return this._genre;
   }
 
-  public set gengre(n: [string]) {
+  public set gengre(n: string) {
     this._genre = n;
   }
 
 
-  constructor(values: object = {}) {
+  constructor(values: Object = {}) {
     Object.assign(this, values);
   }
 
@@ -63,7 +63,7 @@ export class Serie {
     return this._characters;
   }
 
-  public set characters(n: [object]) {
+  public set characters(n: [Object]) {
     this._characters = n;
   }
 
@@ -71,7 +71,7 @@ export class Serie {
     return this._creators;
   }
 
-  public set creators(n: [object]) {
+  public set creators(n: [Object]) {
     this._creators = n;
   }
 

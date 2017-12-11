@@ -12,6 +12,7 @@ import {ActorService} from '../actor-service.service';
 export class ActorListComponent implements OnInit, OnDestroy {
   actors: Actor[];
   subscription: Subscription;
+  filteredStatus = '';
 
   constructor(private actorService: ActorService,
               private router: Router,

@@ -111,6 +111,37 @@
             </div>
           </div>
         </div>
+        <div class="col-md-6">
+          <div class="row">
+            <div class="col-xs-12">
+              <div class="form-group">
+                <label for="genre">Genre</label>
+                <!--<input
+                  type="text"
+                  id="genre"
+                  formControlName="language"
+                  class="form-control">-->
+                <!--<select type="text"
+                        id="genre"
+                        formControlName="language"
+                        class="form-control">
+
+                  <option *ngfor="let genre of genres" [value]="genre" >{{genre}}</option>
+
+
+                </select>-->
+                <select type="text"
+                        id="genre"
+                        formControlName="genre"
+                        class="form-control"
+                [(ngModel)]="selectedGenre"
+                (ngModelChange)="changeSelectedType($event)">
+                  <option *ngFor="let type of genres" [ngValue]="type">{{type.toString()}}</option>
+                </select>
+              </div>
+            </div>
+          </div>
+        </div>
 
       </div>
 
