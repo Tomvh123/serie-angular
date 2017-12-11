@@ -35,7 +35,7 @@ export class EditSerieComponent implements OnInit {
     });
   }
 
-  private changeSelectedType(event: any) {
+   changeSelectedType(event: any) {
     console.log(event); //object, depends on ngValue
     console.log(this.selectedGenre); //object, depends on ngValue
   }

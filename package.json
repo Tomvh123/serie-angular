@@ -2,14 +2,16 @@
   "name": "angular-spa",
   "version": "0.0.0",
   "license": "MIT",
+  "main": "server.js"
   "scripts": {
     "ng": "ng",
     "start": "node server.js",
-    "postinstall": "ng build --aot -prod",
+
     "build": "ng build",
     "test": "ng test",
     "lint": "ng lint",
-    "e2e": "ng e2e"
+    "e2e": "ng e2e",
+    "postinstall": "ng build --aot -prod"
   },
   "engines": {
     "node": "6.11.1",
@@ -19,6 +21,7 @@
   "dependencies": {
     "@angular/animations": "^5.0.0",
     "@angular/cli": "1.5.0",
+    "@angular/compiler-cli": "^5.0.0",
     "@angular/common": "^5.0.0",
     "@angular/compiler": "^5.0.0",
     "@angular/core": "^5.0.0",
