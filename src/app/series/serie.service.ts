@@ -44,7 +44,6 @@ export class SerieService {
     return this.http.post(environment.serverUrlChar, char, {headers: this.headers})
       .toPromise()
       .then(response => {
-
         return response.json() as Character;
       })
       .catch(error => {

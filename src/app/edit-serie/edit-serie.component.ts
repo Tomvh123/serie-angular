@@ -13,10 +13,13 @@ export class EditSerieComponent implements OnInit {
   id: string;
   edit = false;
   serieForm: FormGroup;
+  genres: [string];
+  selectedGenre: string;
 
   constructor(private route: ActivatedRoute,
               private serieService: SerieService,
               private router: Router) {
+
 
   }
 
@@ -26,8 +29,15 @@ export class EditSerieComponent implements OnInit {
       this.edit = params['id'] != null;
       this.initForm();
       console.log(this.edit);
+      this.genres = ['action', 'horror'];
+      console.log(this.genres)
 
     });
+  }
+
+  private changeSelectedType(event: any) {
+    console.log(event); //object, depends on ngValue
+    console.log(this.selectedGenre); //object, depends on ngValue
   }
 
   onSubmit() {
@@ -70,6 +80,7 @@ export class EditSerieComponent implements OnInit {
             'start': new FormControl(editSerie.start, Validators.required),
             'seasons': new FormControl(editSerie.seasons, Validators.required),
             'episodes': new FormControl(editSerie.episodes, Validators.required),
+            'genre' : new FormControl(editSerie.genre, Validators.required),
             'language': new FormControl(editSerie.language, Validators.required),
 
           });
@@ -83,6 +94,7 @@ export class EditSerieComponent implements OnInit {
       'start': new FormControl('', Validators.required),
       'seasons': new FormControl(0, Validators.required),
       'episodes': new FormControl(0, Validators.required),
+      'genre': new FormControl(0, Validators.required),
       'language': new FormControl('', Validators.required),
 
     });
