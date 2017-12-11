@@ -29,7 +29,7 @@ export class EditSerieComponent implements OnInit {
       this.edit = params['id'] != null;
       this.initForm();
       console.log(this.edit);
-      this.genres = ['action', 'horror'];
+      this.genres = ['Action', 'Horror', 'Thriller'];
       console.log(this.genres)
 
     });

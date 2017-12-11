@@ -34,6 +34,18 @@ export class SerieService {
       .catch(error => {
         return error;
       });
+  }
+
+  getSeriesRel(genre: String) {
+    return this.http.get('http://localhost:3000/api/v1/seriesrel/' + genre, {headers: this.headers})
+      .toPromise()
+      .then(response => {
+        // this.series = response.json() as Serie[];
+        return response.json() as Serie[];
+      })
+      .catch(error => {
+        return error;
+      });
 
 
   }

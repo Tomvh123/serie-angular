@@ -31,6 +31,7 @@ import { ActorItemComponent } from './actors/actor-list/actor-item/actor-item.co
 import {ActorListComponent} from './actors/actor-list/actor-list.component';
 import {ActorService} from './actors/actor-service.service';
 import { FilterPipe } from './filter.pipe';
+import { RelSerieItemComponent } from './advanced/rel-serie-item/rel-serie-item.component';
 
 
 @NgModule({
@@ -57,6 +58,7 @@ import { FilterPipe } from './filter.pipe';
     ActorStartComponent,
     ActorItemComponent,
     FilterPipe,
+    RelSerieItemComponent,
 
   ],
   imports: [
