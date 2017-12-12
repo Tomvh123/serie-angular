@@ -39,7 +39,7 @@
       <ul>
       <ng-container *ngFor="let actorEl of serie.characters;">
 
-          <li *ngIf="actorEl.actors[0]" class="list-group-item"  >{{actorEl.actors[0].name}}</li>
+          <li *appIfnot="!actorEl.actors[0]" class="list-group-item"  >{{actorEl.actors[0].name}}</li>
 
       </ng-container>
       </ul>
