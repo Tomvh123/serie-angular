@@ -52,16 +52,18 @@
       </ul>
 
     </ul>
+<div class="row">
+  <div class="col-sm-12">
+    <button routerLink="/edit/{{serie._id}}" class="btn btn-primary">edit</button>
+    <button class="btn btn-danger" (click)="onSerieDelete()">Delete</button>
+  </div>
+</div>
 
-      <div class="col-6">
-        <button routerLink="/edit/{{serie._id}}" class="btn btn-primary">edit</button>
-        <button class="btn btn-danger" (click)="onSerieDelete()">Delete</button>
-      </div>
 
   </div>
 </div>
 <hr>
-<button routerLink="/editChar/{{serie._id}}" class="btn btn-primary">Add</button>
+<button routerLink="/editChar/{{serie._id}}" class="btn btn-success">Add</button>
 <div class="row">
   <div class="col-xs-12">
     <h1>characters</h1>
