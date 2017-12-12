@@ -37,7 +37,6 @@ export class EditCharacterComponent implements OnInit {
       this.id = params['id'];
       this.idChar = params['charid'];
       this.edit = params['charid'] != null;
-      console.log(this.edit);
       this.initForm();
       this.serieService.getSerie(this.id)
         .then(series => this.serie = series);
