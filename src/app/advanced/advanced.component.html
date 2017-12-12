@@ -52,14 +52,12 @@
       </ul>
 
     </ul>
-    <div class="row">
-      <div class="col-md-6">
-        <button routerLink="/edit/{{serie._id}}" class="btn btn-primary pull-right">edit</button>
-      </div>
-      <div class="col-md-6">
+
+      <div class="col-6">
+        <button routerLink="/edit/{{serie._id}}" class="btn btn-primary">edit</button>
         <button class="btn btn-danger" (click)="onSerieDelete()">Delete</button>
       </div>
-    </div>
+
   </div>
 </div>
 <hr>
