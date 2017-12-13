@@ -35,6 +35,9 @@ import { RelSerieItemComponent } from './advanced/rel-serie-item/rel-serie-item.
 import { IfnotDirective } from './ifnot.directive';
 
 
+
+
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -60,7 +63,7 @@ import { IfnotDirective } from './ifnot.directive';
     ActorItemComponent,
     FilterPipe,
     RelSerieItemComponent,
-    IfnotDirective
+    IfnotDirective,
   ],
   imports: [
     BrowserModule,
