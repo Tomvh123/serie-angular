@@ -1,6 +1,6 @@
 /* You can add global styles to this file, and also import other style files */
 body{
-  background-image: url("http://www.publicdomainpictures.net/pictures/170000/velka/grunge-background-14635619239LT.jpg");
+  background-image: url("https://s-media-cache-ak0.pinimg.com/originals/76/ae/f0/76aef0f69dc3192d7d3f17320bc9304f.jpg");
   background-repeat: no-repeat;
   background-attachment: fixed;
   }
@@ -8,7 +8,8 @@ body{
 .container{
   background-color: white;
   border-radius: 10px;
-
+  box-shadow: 0 0 30px black;
+  opacity: 0.95;
 }
 
 #padding{
