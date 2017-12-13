@@ -155,7 +155,7 @@ export class SerieService {
       .toPromise()
       .then(response => {
         this.actors = response.json() as Actor[];
-        return response.json() as Serie[];
+        return response.json() as Actor[];
       })
       .catch(error => {
         return error;
