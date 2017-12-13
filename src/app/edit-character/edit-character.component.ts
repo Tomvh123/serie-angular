@@ -1,11 +1,12 @@
 import {Component, OnInit} from '@angular/core';
 import {FormControl, FormGroup, Validators, FormArray} from '@angular/forms';
 import {ActivatedRoute, Params, Router} from '@angular/router';
-import {SerieService} from '../series/serie.service';
-import {Serie} from '../series/serie.model';
-import {Actor} from '../actor.model';
-import {Character} from '../series/character.model';
+import {SerieService} from '../services/serie.service';
+import {Serie} from '../models/serie.model';
+import {Actor} from '../models/actor.model';
+import {Character} from '../models/character.model';
 import {forEach} from '@angular/router/src/utils/collection';
+import {ActorService} from '../services/actor-service.service';
 
 @Component({
   selector: 'app-edit-character',
@@ -26,12 +27,13 @@ export class EditCharacterComponent implements OnInit {
 
   constructor(private route: ActivatedRoute,
               private serieService: SerieService,
+              private actorService: ActorService,
               private router: Router) {
   }
 
   ngOnInit() {
 
-    this.serieService.getActors()
+    this.actorService.getActors()
       .then(actors => this.actors = actors);
     this.route.params.subscribe((params: Params) => {
       this.id = params['id'];

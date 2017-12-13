@@ -1,6 +1,6 @@
 import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
 
-import {Character} from '../../series/character.model';
+import {Character} from '../../models/character.model';
 import {isNumber} from 'util';
 
 @Component({

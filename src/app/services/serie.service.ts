@@ -2,10 +2,10 @@ import {Injectable} from '@angular/core';
 import {Subject} from 'rxjs/Subject';
 import {environment} from '../../environments/environment';
 import {Http, Headers} from '@angular/http';
-import {Serie} from './serie.model';
+import {Serie} from '../models/serie.model';
 import {toPromise} from 'rxjs/operator/toPromise';
-import {Character} from './character.model';
-import {Actor} from '../actor.model';
+import {Character} from '../models/character.model';
+import {Actor} from '../models/actor.model';
 
 @Injectable()
 export class SerieService {
@@ -24,23 +24,7 @@ export class SerieService {
   constructor(private http: Http) {
 
   }
-
-
-
-  getSeriesRel(genre: String) {
-    return this.http.get(environment.serverUrlRel + genre, {headers: this.headers})
-      .toPromise()
-      .then(response => {
-        // this.series = response.json() as Serie[];
-        return response.json() as Serie[];
-      })
-      .catch(error => {
-        return error;
-      });
-
-
-  }
-
+  //series
   addChar(id: string, char: Character, serie: Serie) {
     console.log('addChar')
 
@@ -152,7 +136,7 @@ export class SerieService {
   }
 
 
-  //actors
+  /*//actors
 
   getActors() {
 
@@ -165,6 +149,21 @@ export class SerieService {
       .catch(error => {
         return error;
       });
+  }*/
+
+  //rel
+  getSeriesRel(genre: String) {
+    return this.http.get(environment.serverUrlRel + genre, {headers: this.headers})
+      .toPromise()
+      .then(response => {
+        // this.series = response.json() as Serie[];
+        return response.json() as Serie[];
+      })
+      .catch(error => {
+        return error;
+      });
+
+
   }
 
 }

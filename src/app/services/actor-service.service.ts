@@ -1,6 +1,6 @@
 import {Injectable} from '@angular/core';
 import {environment} from '../../environments/environment';
-import {Actor} from '../actor.model';
+import {Actor} from '../models/actor.model';
 import {Subject} from 'rxjs/Subject';
 import {Headers, Http} from '@angular/http';
 

@@ -1,4 +1,4 @@
-import {Actor} from '../actor.model';
+import {Actor} from './actor.model';
 export class Character {
   private id: string;
   private _name: string;

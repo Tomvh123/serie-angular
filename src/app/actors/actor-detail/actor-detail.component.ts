@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import {Actor} from '../../actor.model';
-import {ActorService} from '../actor-service.service';
+import {Actor} from '../../models/actor.model';
+import {ActorService} from '../../services/actor-service.service';
 import {ActivatedRoute, Params, Router} from '@angular/router';
 
 @Component({

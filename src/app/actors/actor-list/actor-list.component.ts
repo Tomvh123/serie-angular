@@ -1,8 +1,8 @@
 import {Component, OnDestroy, OnInit} from '@angular/core';
 import {Subscription} from 'rxjs/Subscription';
 import {ActivatedRoute, Router} from '@angular/router';
-import {Actor} from '../../actor.model';
-import {ActorService} from '../actor-service.service';
+import {Actor} from '../../models/actor.model';
+import {ActorService} from '../../services/actor-service.service';
 
 @Component({
   selector: 'app-actor-list',
