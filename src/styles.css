@@ -3,7 +3,7 @@ body{
   background-image: url("https://s-media-cache-ak0.pinimg.com/originals/76/ae/f0/76aef0f69dc3192d7d3f17320bc9304f.jpg");
   background-repeat: no-repeat;
   background-attachment: fixed;
- padding-top: 70px;
+ /* padding-top: 70px;*/
   }
 
 .container{
