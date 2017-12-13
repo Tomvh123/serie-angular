@@ -156,7 +156,7 @@ export class SerieService {
 
   getActors() {
 
-    return this.http.get('http://localhost:3000/api/v1/actors', {headers: this.headers})
+    return this.http.get(environment.serverUrlActor, {headers: this.headers})
       .toPromise()
       .then(response => {
         this.actors = response.json() as Actor[];
