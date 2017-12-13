@@ -25,7 +25,6 @@ export class AdvancedComponent implements OnInit, OnDestroy {
               private route: ActivatedRoute,
               private router: Router) {
     console.log('advanced');
-
   }
 
   ngOnInit() {
@@ -41,7 +40,7 @@ export class AdvancedComponent implements OnInit, OnDestroy {
       );
     this.subsription = this.serieService.charChanged
       .subscribe(
-        (serie: Serie) => {
+        () => {
           this.serieService.getSerie(this.id)
             .then(() => {
               this.serieService.getSerie(this.id).then(res => {

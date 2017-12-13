@@ -6,12 +6,13 @@ import {Serie} from '../models/serie.model';
 import {toPromise} from 'rxjs/operator/toPromise';
 import {Character} from '../models/character.model';
 import {Actor} from '../models/actor.model';
+import {Observable} from 'rxjs/Observable';
 
 @Injectable()
 export class SerieService {
-  serieChanged = new Subject<Serie[]>();
-  actorChanged = new Subject<Actor[]>();
-  charChanged = new Subject<Serie>();
+  serieChanged = new Subject<void>();
+  // actorChanged = new Subject<void>();
+  charChanged = new Subject<void>();
 
   private headers = new Headers({'Content-Type': 'application/json'});
   private serverUrl = environment.serverUrl + '/series/';
@@ -31,7 +32,7 @@ export class SerieService {
     return this.http.post(environment.serverUrlChar, char, {headers: this.headers})
       .toPromise()
       .then(response => {
-        this.charChanged.next(this.serie);
+        this.charChanged.next();
         return response.json() as Character;
       })
       .catch(error => {
@@ -57,7 +58,7 @@ export class SerieService {
     return this.http.get(this.serverUrl + index, {headers: this.headers})
       .toPromise()
       .then(response => {
-        this.serie = response.json() as Serie;
+        // this.serie = response.json() as Serie;
         return response.json();
       })
       .catch(error => {
@@ -71,7 +72,7 @@ export class SerieService {
     return this.http.post(this.serverUrl, serie, {headers: this.headers})
       .toPromise()
       .then(response => {
-        this.serieChanged.next(this.series);
+        this.serieChanged.next();
       });
   }
 
@@ -80,7 +81,7 @@ export class SerieService {
     return this.http.put(this.serverUrl + index, newSerie, {headers: this.headers})
       .toPromise()
       .then(response => {
-        this.serieChanged.next(this.series);
+        this.serieChanged.next();
       });
   }
 
@@ -88,7 +89,7 @@ export class SerieService {
     return this.http.delete(this.serverUrl + index, {headers: this.headers})
       .toPromise()
       .then(response => {
-        this.serieChanged.next(this.series);
+        this.serieChanged.next();
       });
   }
 
@@ -130,26 +131,11 @@ export class SerieService {
       .toPromise()
       .then(response => {
         console.log(response);
-        this.serieChanged.next(this.series);
+        this.serieChanged.next();
       });
 
   }
 
-
-  /*//actors
-
-  getActors() {
-
-    return this.http.get(environment.serverUrlActor, {headers: this.headers})
-      .toPromise()
-      .then(response => {
-        this.actors = response.json() as Actor[];
-        return response.json() as Actor[];
-      })
-      .catch(error => {
-        return error;
-      });
-  }*/
 
   //rel
   getSeriesRel(genre: String) {

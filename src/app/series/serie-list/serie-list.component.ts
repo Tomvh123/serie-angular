@@ -22,7 +22,7 @@ export class SerieListComponent implements OnInit, OnDestroy {
   ngOnInit() {
     this.subscription = this.serieService.serieChanged
       .subscribe(
-        (series: Serie[]) => {
+        () => {
           this.serieService.getSeries()
             .then(res => {
               this.series = res;

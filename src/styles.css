@@ -1,1 +1,18 @@
 /* You can add global styles to this file, and also import other style files */
+body{
+  background-image: url("http://www.publicdomainpictures.net/pictures/170000/velka/grunge-background-14635619239LT.jpg");
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  }
+
+.container{
+  background-color: white;
+  border-radius: 10px;
+
+}
+
+#padding{
+  padding: 40px
+}
+
+
