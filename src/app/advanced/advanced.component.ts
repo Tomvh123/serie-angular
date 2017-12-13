@@ -1,8 +1,9 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnDestroy, OnInit} from '@angular/core';
 import {ActivatedRoute, Params, Router} from '@angular/router';
 import {SerieService} from '../series/serie.service';
 import {Serie} from '../series/serie.model';
 import {Character} from '../series/character.model';
+import {Subscription} from 'rxjs/Subscription';
 
 
 @Component({
@@ -10,11 +11,12 @@ import {Character} from '../series/character.model';
   templateUrl: './advanced.component.html',
   styleUrls: ['./advanced.component.css']
 })
-export class AdvancedComponent implements OnInit {
+export class AdvancedComponent implements OnInit, OnDestroy {
   serie: Serie = new Serie({name: 'loading', imagePath: ''});
   character: Character;
   index: number;
   relSerie: Serie[];
+  subsription: Subscription;
 
 
   id: string;
@@ -33,12 +35,22 @@ export class AdvancedComponent implements OnInit {
           this.id = params['id'];
           this.serieService.getSerie(this.id).then(res => {
             this.serie = res;
-            console.log(this.serie)
           }).then(() => this.serieService.getSeriesRel(this.serie.genre)
             .then((res) => this.relSerie = res) );
         }
       );
+    this.subsription = this.serieService.charChanged
+      .subscribe(
+        (serie: Serie) => {
+          this.serieService.getSerie(this.id)
+            .then(() => {
+              this.serieService.getSerie(this.id).then(res => {
+                this.serie = res;
+              });
 
+            });
+        }
+      );
 
 
   }
@@ -57,6 +69,10 @@ export class AdvancedComponent implements OnInit {
     this.serieService.updateSerie(this.id, this.serie);
 
 
+  }
+
+  ngOnDestroy() {
+    this.subsription.unsubscribe();
   }
 
 

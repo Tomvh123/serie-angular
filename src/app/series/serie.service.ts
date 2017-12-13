@@ -11,11 +11,12 @@ import {Actor} from '../actor.model';
 export class SerieService {
   serieChanged = new Subject<Serie[]>();
   actorChanged = new Subject<Actor[]>();
+  charChanged = new Subject<Serie>();
 
   private headers = new Headers({'Content-Type': 'application/json'});
   private serverUrl = environment.serverUrl + '/series/';
 
-
+  private serie: Serie;
   private series: Serie[];
   private actors: Actor[];
   private characters: Character[];
@@ -24,17 +25,7 @@ export class SerieService {
 
   }
 
-  getSeries() {
-    return this.http.get(this.serverUrl, {headers: this.headers})
-      .toPromise()
-      .then(response => {
-        this.series = response.json() as Serie[];
-        return response.json() as Serie[];
-      })
-      .catch(error => {
-        return error;
-      });
-  }
+
 
   getSeriesRel(genre: String) {
     return this.http.get(environment.serverUrlRel + genre, {headers: this.headers})
@@ -56,7 +47,20 @@ export class SerieService {
     return this.http.post(environment.serverUrlChar, char, {headers: this.headers})
       .toPromise()
       .then(response => {
+        this.charChanged.next(this.serie);
         return response.json() as Character;
+      })
+      .catch(error => {
+        return error;
+      });
+  }
+
+  getSeries() {
+    return this.http.get(this.serverUrl, {headers: this.headers})
+      .toPromise()
+      .then(response => {
+        this.series = response.json() as Serie[];
+        return response.json() as Serie[];
       })
       .catch(error => {
         return error;
@@ -69,6 +73,7 @@ export class SerieService {
     return this.http.get(this.serverUrl + index, {headers: this.headers})
       .toPromise()
       .then(response => {
+        this.serie = response.json() as Serie;
         return response.json();
       })
       .catch(error => {
@@ -151,7 +156,7 @@ export class SerieService {
 
   getActors() {
 
-    return this.http.get('http://localhost:3000/api/v1/actors', {headers: this.headers})
+    return this.http.get(environment.serverUrlActor, {headers: this.headers})
       .toPromise()
       .then(response => {
         this.actors = response.json() as Actor[];

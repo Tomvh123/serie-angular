@@ -32,6 +32,7 @@ import {ActorListComponent} from './actors/actor-list/actor-list.component';
 import {ActorService} from './actors/actor-service.service';
 import { FilterPipe } from './filter.pipe';
 import { RelSerieItemComponent } from './advanced/rel-serie-item/rel-serie-item.component';
+import { IfnotDirective } from './ifnot.directive';
 
 
 @NgModule({
@@ -59,7 +60,7 @@ import { RelSerieItemComponent } from './advanced/rel-serie-item/rel-serie-item.
     ActorItemComponent,
     FilterPipe,
     RelSerieItemComponent,
-
+    IfnotDirective
   ],
   imports: [
     BrowserModule,
