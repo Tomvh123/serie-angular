@@ -35,7 +35,7 @@ export class AdvancedComponent implements OnInit, OnDestroy {
           this.serieService.getSerie(this.id).then(res => {
             this.serie = res;
           }).then(() => this.serieService.getSeriesRel(this.serie.genre)
-            .then((res) => this.relSerie = res) );
+            .then((res) => this.relSerie = res).then(()=> this.character=null) );
         }
       );
     this.subsription = this.serieService.charChanged
@@ -46,7 +46,6 @@ export class AdvancedComponent implements OnInit, OnDestroy {
               this.serieService.getSerie(this.id).then(res => {
                 this.serie = res;
               });
-
             });
         }
       );
