@@ -80,7 +80,7 @@
   </div>
   <div class="col-md-6">
     <app-character-detail
-      *ngIf="character !=null; else infoText"
+      *ngIf="character; else infoText"
       [character]="character"
     [serieId]="serie._id"
     ></app-character-detail>
