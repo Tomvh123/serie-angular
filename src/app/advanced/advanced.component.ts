@@ -35,7 +35,7 @@ export class AdvancedComponent implements OnInit, OnDestroy {
           this.serieService.getSerie(this.id).then(res => {
             this.serie = res;
           }).then(() => this.serieService.getSeriesRel(this.serie.genre)
-            .then((res) => this.relSerie = res) );
+            .then((res) => this.relSerie = res));
         }
       );
     this.subsription = this.serieService.charChanged
@@ -46,7 +46,6 @@ export class AdvancedComponent implements OnInit, OnDestroy {
               this.serieService.getSerie(this.id).then(res => {
                 this.serie = res;
               });
-
             });
         }
       );
@@ -58,12 +57,13 @@ export class AdvancedComponent implements OnInit, OnDestroy {
     this.character = character;
 
   }
+
   onSerieDelete() {
     this.serieService.deleteSerie(this.id);
     this.router.navigate(['/series']);
   }
 
-  onCharDelete(i : number) {
+  onCharDelete(i: number) {
     this.serie.characters.splice(i, i + 1);
     this.serieService.updateSerie(this.id, this.serie);
 
@@ -73,7 +73,6 @@ export class AdvancedComponent implements OnInit, OnDestroy {
   ngOnDestroy() {
     this.subsription.unsubscribe();
   }
-
 
 
 }

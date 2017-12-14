@@ -47,13 +47,7 @@
       </ul>
 
     </ul>
-    <ul>
-      Creators:
-      <ul>
-        <li  class="list-group-item" *ngFor="let creatorEL of serie.creators">{{creatorEL.name}}</li>
-      </ul>
 
-    </ul>
 
     <button routerLink="/edit/{{serie._id}}" class="btn btn-primary">edit</button>
     <button class="btn btn-danger" (click)="onSerieDelete()">Delete</button>

@@ -62,7 +62,7 @@ export class ActorEditComponent implements OnInit {
             'name': new FormControl(editactor.name, Validators.required),
             'imagePath': new FormControl(editactor.imagePath, Validators.required),
             'description': new FormControl(editactor.description, Validators.required),
-            'birthDate': new FormControl(date, Validators.required)
+            'birthDate': new FormControl(editactor.birthDate, Validators.required)
           });
 
         })
