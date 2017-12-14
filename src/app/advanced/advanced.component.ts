@@ -49,8 +49,7 @@ export class AdvancedComponent implements OnInit, OnDestroy {
             });
         }
       );
-    this.character = null;
-    console.log(this.character);
+
 
   }
 
@@ -58,12 +57,13 @@ export class AdvancedComponent implements OnInit, OnDestroy {
     this.character = character;
 
   }
+
   onSerieDelete() {
     this.serieService.deleteSerie(this.id);
     this.router.navigate(['/series']);
   }
 
-  onCharDelete(i : number) {
+  onCharDelete(i: number) {
     this.serie.characters.splice(i, i + 1);
     this.serieService.updateSerie(this.id, this.serie);
 
@@ -73,7 +73,6 @@ export class AdvancedComponent implements OnInit, OnDestroy {
   ngOnDestroy() {
     this.subsription.unsubscribe();
   }
-
 
 
 }
