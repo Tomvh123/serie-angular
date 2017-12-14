@@ -1,5 +1,7 @@
 import {Actor} from './actor.model';
-export class Character {
+import {Person} from './Person';
+
+export class Character implements Person {
   private id: string;
   private _name: string;
   private _description: string;
