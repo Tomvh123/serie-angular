@@ -1,4 +1,5 @@
-export class Actor {
+import {Person} from './Person';
+export class Actor implements Person {
   private id: string;
   private _name: string;
   private _description: string;
