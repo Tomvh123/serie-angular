@@ -50,7 +50,8 @@ export class AdvancedComponent implements OnInit, OnDestroy {
             });
         }
       );
-
+    this.character = null;
+    console.log(this.character);
 
   }
 
