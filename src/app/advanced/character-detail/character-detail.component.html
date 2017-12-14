@@ -1,0 +1,44 @@
+<div class="row">
+  <div class="col-xs-12">
+    <h1>{{character.name}}</h1>
+    <img
+      [src]="character.imagePath"
+      alt="image not found"
+      class="img-responsive img-rounded"
+      style="max-height: 300px;">
+    <p>{{character.description}}</p>
+
+  </div>
+</div>
+
+
+
+<div class="row">
+  <div class="col-xs-12">
+    <a
+      style="cursor: pointer;"
+      class="list-group-item clearfix"
+      (click)="onActorClick()">
+      <div class="pull-left">
+        <h4 class="list-group-item-heading">Played by:</h4>
+        <p> {{character.actors[0].name}}</p>
+      </div>
+      <span class="pull-right">
+        <img
+          [src]="character.actors[0].imagePath"
+          onerror="this.src='https://pbs.twimg.com/profile_images/600060188872155136/st4Sp6Aw.jpg'"
+          alt="{{ character.name }}"
+          class="img-responsive img-rounded"
+          style="max-height: 75px;">
+      </span>
+    </a>
+  </div>
+
+    <div class="col-xs-12">
+
+    </div>
+
+
+</div>
+
+

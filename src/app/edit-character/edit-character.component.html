@@ -1,0 +1,108 @@
+<div class="row" id="padding">
+
+  <div class="col-md-6">
+    <form [formGroup]="charForm" (ngSubmit)="onSubmit()">
+
+      <div class="row">
+        <div class="col-xs-12">
+          <div class="row">
+            <div class="col-xs-12">
+              <button
+                type="submit"
+                class="btn btn-success"
+                [disabled]="!charForm.valid"
+
+              >Save
+              </button>
+              <button type="button" class="btn btn-danger" (click)="onCancel()">Cancel</button>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-xs-12">
+              <div class="form-group">
+                <label for="name">Name</label>
+                <input
+                  type="text"
+                  id="name"
+                  formControlName="name"
+                  class="form-control">
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-xs-12">
+              <div class="form-group">
+                <label for="imagePath">Image URL</label>
+                <input
+                  type="text"
+                  id="imagePath"
+                  formControlName="imagePath"
+                  class="form-control"
+                  #imagePath>
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-xs-12">
+              <img [src]="imagePath.value"  alt="text" class="img-responsive"
+                   onerror="this.src='https://pbs.twimg.com/profile_images/600060188872155136/st4Sp6Aw.jpg'">
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-xs-12">
+              <div class="form-group">
+                <label for="description">Description</label>
+                <textarea
+                  type="text"
+                  id="description"
+                  class="form-control"
+                  formControlName="description"
+                  rows="6"></textarea>
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-xs-12">
+              <div class="form-group">
+                <label for="birthDate">BirthDate</label>
+                <input
+                  type="date"
+                  id="birthDate"
+                  formControlName="birthDate"
+                  class="form-control">
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-xs-12" formArrayName="actors">
+              <div
+                class="row"
+                *ngFor="let actorCtrl of charForm.get('actors')['controls']; let i = index"
+                [formGroupName]="i"
+                style="margin-top: 10px;">
+                <div class="col-xs-8">
+                  <input
+                    type="text"
+                    class="form-control"
+                    formControlName="_id">
+                </div>
+                <div class="col-xs-2">
+                  <button
+                    type="button"
+                    class="btn btn-danger"
+                  (click)="onDeleteActors(i)">X</button>
+                </div>
+              </div>
+              <hr>
+            </div>
+          </div>
+        </div>
+      </div>
+    </form>
+  </div>
+
+  <div class="col-md-6" >
+    <app-actor-edit-list
+    (actorClicked)="onAddActor($event)"></app-actor-edit-list>
+    </div>
+</div>

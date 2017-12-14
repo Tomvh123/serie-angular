@@ -1,0 +1,108 @@
+<div class="row" id="padding">
+  <div class="col-md-6">
+    <div class="row">
+      <div class="col-xs-12">
+        <h1>{{ serie.name }}</h1>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-xs-12">
+        <img
+          [src]="serie.imagePath"
+          onerror="this.src='https://pbs.twimg.com/profile_images/600060188872155136/st4Sp6Aw.jpg'"
+          alt="{{ serie.name }}"
+          class="img-responsive"
+          style="max-height: 300px;">
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-xs-12">
+        <hr>
+        <p>{{serie.description}}</p>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-xs-12">
+
+      </div>
+    </div>
+  </div>
+  <div class="col-md-6">
+    <h1>More info</h1>
+    <p>Started: {{serie.start | date}}</p>
+    <p>Seasons: {{serie.seasons}}</p>
+    <p>Episodes: {{serie.episodes}}</p>
+    <p>Language: {{serie.language}}</p>
+    <p>Genre: {{serie.genre}}</p>
+    <ul>
+      Actors:
+      <ul>
+      <ng-container *ngFor="let actorEl of serie.characters;">
+
+          <li *appIfnot="!actorEl.actors[0]" class="list-group-item"  >{{actorEl.actors[0].name}}</li>
+
+      </ng-container>
+      </ul>
+
+    </ul>
+
+
+    <button routerLink="/edit/{{serie._id}}" class="btn btn-primary">edit</button>
+    <button class="btn btn-danger" (click)="onSerieDelete()">Delete</button>
+
+
+
+  </div>
+</div>
+<hr>
+<button routerLink="/editChar/{{serie._id}}" class="btn btn-success">Add</button>
+<div class="row">
+  <div class="col-xs-12">
+    <h1>characters</h1>
+  </div>
+</div>
+<div class="row">
+  <div class="col-md-6">
+    <div class="pre-scrollable">
+      <app-character-item
+        *ngFor="let characterEL of serie.characters; let i = index"
+        [character]="characterEL"
+        [serieId]="serie._id"
+        [index]="i"
+        (characterSelected)="onSerieSelected(characterEL)"
+        (characterDelete)="onCharDelete(i)">
+
+      </app-character-item>
+    </div>
+
+  </div>
+  <div class="col-md-6">
+    <app-character-detail
+      *ngIf="character; else infoText"
+      [character]="character"
+    [serieId]="serie._id"
+    ></app-character-detail>
+    <ng-template #infoText>
+      <p>Select an character</p>
+    </ng-template>
+  </div>
+
+</div>
+<hr>
+<h1>Related Series: </h1>
+<div class="row">
+  <div class="col-md-12">
+    <ul id="ul">
+      <ng-container *ngFor="let serieEl of relSerie">
+        <li *ngIf="serieEl._id != serie._id"  id="li"><app-rel-serie-item
+          [serieRel]="serieEl">
+        </app-rel-serie-item></li>
+      </ng-container>
+    </ul>
+
+    </div>
+  </div>
+
+

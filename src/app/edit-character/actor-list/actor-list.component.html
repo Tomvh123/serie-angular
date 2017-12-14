@@ -1,0 +1,15 @@
+<h1>Actors:</h1>
+<button routerLink="/actors" class="btn btn-success">Add new actor?</button>
+<hr>
+<div class="row">
+  <div class="pre-scrollable">
+  <div class="col-xs-10">
+
+    <app-actor-item-edit
+      *ngFor="let actorEl of actors; let i = index"
+      [actorEdit]="actorEl"
+      [index]="i"
+    (actorClicked)="onActorClicked(actorEl)"></app-actor-item-edit>
+  </div>
+  </div>
+</div>

@@ -1,0 +1,17 @@
+<div class="row">
+  <div class="col-xs-12">
+    <button class="btn btn-success" (click)="onNewActor()" >Add Actor</button>
+    <input type="text" [(ngModel)]="filteredStatus">
+  </div>
+</div>
+<hr>
+<div class="row">
+  <div class="col-xs-12">
+    <div class="pre-scrollable">
+    <app-actor-item
+      *ngFor="let actorEl of actors | filter: filteredStatus: 'name'; let i = index"
+      [actor]="actorEl"
+      [index]="i"></app-actor-item>
+    </div>
+  </div>
+</div>
