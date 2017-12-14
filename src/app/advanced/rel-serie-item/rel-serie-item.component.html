@@ -1,7 +1,7 @@
 <div class="row">
   <a
     style="cursor: pointer;"
-    routerLink="/advanced/{{serieRel._id}}" 
+    routerLink="/advanced/{{serieRel._id}}"
     class="list-group-item ">
     <div class="pull-left">
       <h4 class="list-group-item-heading">{{ serieRel.name }}</h4>
@@ -10,6 +10,7 @@
     <span >
         <img
           [src]="serieRel.imagePath"
+          onerror="this.src='https://pbs.twimg.com/profile_images/600060188872155136/st4Sp6Aw.jpg'"
           alt="{{ serieRel.name }}"
           class="img-responsive"
           style="max-height: 50px;">

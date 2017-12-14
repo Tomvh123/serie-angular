@@ -1,5 +1,5 @@
 import {Component, Input, OnInit} from '@angular/core';
-import {Actor} from '../../../actor.model';
+import {Actor} from '../../../models/actor.model';
 
 
 @Component({

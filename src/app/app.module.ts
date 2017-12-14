@@ -9,7 +9,7 @@ import {AppRoutingModule} from './app-routing.module';
 import { SeriesComponent } from './series/series.component';
 import { SerieListComponent } from './series/serie-list/serie-list.component';
 import { SerieItemComponent } from './series/serie-list/serie-item/serie-item.component';
-import {SerieService} from './series/serie.service';
+import {SerieService} from './services/serie.service';
 import {HttpModule} from '@angular/http';
 import { SerieStartComponent } from './series/serie-list/serie-start/serie-start.component';
 import { SerieDetailComponent } from './series/serie-detail/serie-detail.component';
@@ -29,10 +29,13 @@ import { ActorEditComponent } from './actors/actor-edit/actor-edit.component';
 import { ActorStartComponent } from './actors/actor-start/actor-start.component';
 import { ActorItemComponent } from './actors/actor-list/actor-item/actor-item.component';
 import {ActorListComponent} from './actors/actor-list/actor-list.component';
-import {ActorService} from './actors/actor-service.service';
+import {ActorService} from './services/actor-service.service';
 import { FilterPipe } from './filter.pipe';
 import { RelSerieItemComponent } from './advanced/rel-serie-item/rel-serie-item.component';
 import { IfnotDirective } from './ifnot.directive';
+
+
+
 
 
 @NgModule({
@@ -60,7 +63,7 @@ import { IfnotDirective } from './ifnot.directive';
     ActorItemComponent,
     FilterPipe,
     RelSerieItemComponent,
-    IfnotDirective
+    IfnotDirective,
   ],
   imports: [
     BrowserModule,

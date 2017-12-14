@@ -1,8 +1,8 @@
 import {Component, OnDestroy, OnInit} from '@angular/core';
 import {ActivatedRoute, Params, Router} from '@angular/router';
-import {SerieService} from '../series/serie.service';
-import {Serie} from '../series/serie.model';
-import {Character} from '../series/character.model';
+import {SerieService} from '../services/serie.service';
+import {Serie} from '../models/serie.model';
+import {Character} from '../models/character.model';
 import {Subscription} from 'rxjs/Subscription';
 
 
@@ -25,7 +25,6 @@ export class AdvancedComponent implements OnInit, OnDestroy {
               private route: ActivatedRoute,
               private router: Router) {
     console.log('advanced');
-
   }
 
   ngOnInit() {
@@ -41,7 +40,7 @@ export class AdvancedComponent implements OnInit, OnDestroy {
       );
     this.subsription = this.serieService.charChanged
       .subscribe(
-        (serie: Serie) => {
+        () => {
           this.serieService.getSerie(this.id)
             .then(() => {
               this.serieService.getSerie(this.id).then(res => {

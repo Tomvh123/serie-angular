@@ -1,7 +1,8 @@
 import {Component, EventEmitter, OnInit, Output} from '@angular/core';
-import {Actor} from '../../actor.model';
-import {SerieService} from '../../series/serie.service';
+import {Actor} from '../../models/actor.model';
+import {SerieService} from '../../services/serie.service';
 import {Subscription} from 'rxjs/Subscription';
+import {ActorService} from '../../services/actor-service.service';
 
 @Component({
   selector: 'app-actor-edit-list',
@@ -13,20 +14,21 @@ export class ActorListEditComponent implements OnInit {
   subscription: Subscription;
   @Output() actorClicked = new EventEmitter<Actor>();
 
-  constructor(private serieService: SerieService) { }
+  constructor(private serieService: SerieService,
+  private actorService: ActorService) { }
 
   ngOnInit() {
 
-    this.subscription = this.serieService.actorChanged
+    this.subscription = this.actorService.actorChanged
       .subscribe(
         (actors: Actor[]) => {
-          this.serieService.getActors()
+          this.actorService.getActors()
             .then(res => {
               this.actors = res;
             });
         }
       );
-    this.serieService.getActors().then(res => {
+    this.actorService.getActors().then(res => {
       this.actors = res;
     });
 

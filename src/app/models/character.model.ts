@@ -1,11 +1,15 @@
-export class Actor {
+import {Actor} from './actor.model';
+import {Person} from './Person';
+
+export class Character implements Person {
   private id: string;
   private _name: string;
   private _description: string;
   private _imagepath: string;
+  private _actors: [Actor];
   private _birthDate: Date;
 
-  constructor(values: object = {}) {
+  constructor(values: Object = {}) {
     Object.assign(this, values);
   }
 
@@ -15,6 +19,14 @@ export class Actor {
 
   public set _id(n: string) {
     this.id = n;
+  }
+
+  public get actors() {
+    return this._actors;
+  }
+
+  public set actors(n: [Actor]) {
+    this._actors = n;
   }
 
   public get name() {

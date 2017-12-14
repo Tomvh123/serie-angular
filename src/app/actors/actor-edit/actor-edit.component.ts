@@ -1,8 +1,8 @@
 import {Component, OnInit} from '@angular/core';
 import {FormControl, FormGroup, Validators} from '@angular/forms';
-import {ActorService} from '../actor-service.service';
+import {ActorService} from '../../services/actor-service.service';
 import {ActivatedRoute, Params, Router} from '@angular/router';
-import {Actor} from '../../actor.model';
+import {Actor} from '../../models/actor.model';
 
 @Component({
   selector: 'app-actor-edit',

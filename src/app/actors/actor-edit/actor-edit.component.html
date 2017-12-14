@@ -1,5 +1,6 @@
 <div class="row">
   <div class="col-xs-12">
+    <h1>Input:</h1>
     <form [formGroup]="actorForm" (ngSubmit)="onSubmit()">
       <div class="row">
         <div class="col-xs-12">
@@ -38,7 +39,9 @@
       </div>
       <div class="row">
         <div class="col-xs-12">
-          <img [src]="imagePath.value" class="img-responsive">
+          <img [src]="imagePath.value"
+               onerror="this.src='https://pbs.twimg.com/profile_images/600060188872155136/st4Sp6Aw.jpg'"
+               class="img-responsive">
         </div>
       </div>
       <div class="row">

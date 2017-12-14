@@ -1,7 +1,7 @@
 import {Component, OnDestroy, OnInit} from '@angular/core';
-import {Serie} from '../serie.model';
+import {Serie} from '../../models/serie.model';
 import {Subscription} from 'rxjs/Subscription';
-import {SerieService} from '../serie.service';
+import {SerieService} from '../../services/serie.service';
 import {ActivatedRoute, Router} from '@angular/router';
 
 @Component({
@@ -22,7 +22,7 @@ export class SerieListComponent implements OnInit, OnDestroy {
   ngOnInit() {
     this.subscription = this.serieService.serieChanged
       .subscribe(
-        (series: Serie[]) => {
+        () => {
           this.serieService.getSeries()
             .then(res => {
               this.series = res;

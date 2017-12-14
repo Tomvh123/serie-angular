@@ -1,6 +1,6 @@
 import {Component, OnInit} from '@angular/core';
-import {Serie} from '../serie.model';
-import {SerieService} from '../serie.service';
+import {Serie} from '../../models/serie.model';
+import {SerieService} from '../../services/serie.service';
 import {ActivatedRoute, Params, Router} from '@angular/router';
 
 @Component({

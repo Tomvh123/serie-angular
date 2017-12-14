@@ -1,5 +1,5 @@
 import {Component, OnInit, Input} from '@angular/core';
-import {Serie} from "../../series/serie.model";
+import {Serie} from "../../models/serie.model";
 
 @Component({
   selector: 'app-rel-serie-item',

@@ -1,1 +1,20 @@
 /* You can add global styles to this file, and also import other style files */
+body{
+  background-image: url("https://s-media-cache-ak0.pinimg.com/originals/76/ae/f0/76aef0f69dc3192d7d3f17320bc9304f.jpg");
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+ /* padding-top: 70px;*/
+  }
+
+.container{
+  background-color: white;
+  border-radius: 10px;
+  box-shadow: 0 0 30px black;
+  opacity: 0.95;
+}
+
+#padding{
+  padding: 40px
+}
+
+

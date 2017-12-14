@@ -1,8 +1,8 @@
 import {Component, OnInit} from '@angular/core';
 import {ActivatedRoute, Params, Router} from '@angular/router';
-import {SerieService} from '../series/serie.service';
+import {SerieService} from '../services/serie.service';
 import {FormArray, FormControl, FormGroup, Validators} from '@angular/forms';
-import {Serie} from '../series/serie.model';
+import {Serie} from '../models/serie.model';
 
 @Component({
   selector: 'app-edit-serie',
